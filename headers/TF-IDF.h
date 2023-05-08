@@ -5,8 +5,9 @@ typedef struct tfIdf {
     int qtde;
     int idDoc;
     float weight;
-    float 
+    float erpkmkr; // alguma coisa importante
 } typeTfIdf;
+
 typedef struct typeCell* typeLkPointer;
 typedef struct typeCell {
     typeTfIdf item;
@@ -18,3 +19,5 @@ typedef struct LinkedList {
 } typeLinkedList;
 
 void startLinkedList(typeLinkedList* linkedList);
+void insertLinkedList(typeLinkedList* linkedList, typeTfIdf itemData);
+void printLinkedList(typeLinkedList linkedList);
