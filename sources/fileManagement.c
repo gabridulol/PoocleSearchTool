@@ -39,6 +39,7 @@ void readingDocFiles(char* docName) {
 }
 
 int readDocText(char* docDirectory) {
+    int isIdDoc;
     char textWord[SIZEOFCHAR];
     FILE *docFile = NULL;
     docFile = fopen(docDirectory, "r");
@@ -49,6 +50,8 @@ int readDocText(char* docDirectory) {
         printf("%s\n", textWord);
     }
     fclose(docFile);
+    printf("%d", isIdDoc);
+    isIdDoc++;
 }
 
 void cleanFiles() {
