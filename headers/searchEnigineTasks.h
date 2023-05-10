@@ -17,6 +17,21 @@
 //      ordem alfabética, uma por linha, com suas respectivas listas de ocorrências; 
 //      d) realizar buscas por um ou mais termo(s) de busca, no índice construído, 
 //      apresentando os arquivos ordenados por relevância.
-// Interface gráfica de interação com o usuário...
 
 // Implementação de funções do Buscador Poocle
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "../headers/fileManagement.h"
+
+// Função que recebe o arquivo de entrada
+void getFile();
+// Função que constrói o índice invertido
+void buildInvertedIndex();
+// Função que imprime o índice invertido
+void printInvertedIndex();
+// Função que realiza busca com base em termos de busca
+void searchTool();
+// Função MENU
+void poocleMenu();
