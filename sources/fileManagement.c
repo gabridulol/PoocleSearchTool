@@ -38,7 +38,7 @@ void readingDocFiles(char* docName) {
     readDocText(docDirectory);
 }
 
-int readDocText(char* docDirectory) {    int filesInfile;
+int readDocText(char* docDirectory) {
     char textWord[SIZEOFCHAR];
     FILE *docFile = NULL;
     docFile = fopen(docDirectory, "r");

@@ -9,10 +9,10 @@
 #include <stdlib.h>
 
 typedef struct tfIdf {
-    int qtde;
-    int idDoc;
-    float weight;
-    float erpkmkr; // alguma coisa importante
+    int qtde; // Quantaide
+    int idDoc; // Documentos
+    float weight; // Peso
+    float imp; // Relevância (Cálculado com base no Peso)
 } typeTfIdf;
 
 typedef struct typeCell* typeLkPointer;
