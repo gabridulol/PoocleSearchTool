@@ -5,8 +5,6 @@
 
 #include "../headers/fileManagement.h"
 
-#define SIZEOFCHAR 100
-
 void readingFolderFiles(char* fileName) {
     char fileDirectory[] = "files/";
     char fileNewName[SIZEOFCHAR]; 

@@ -4,3 +4,8 @@
 // Luiz César Galvão Lima - 4216
 
 // Implementação de PATRICIA e suas operações
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
