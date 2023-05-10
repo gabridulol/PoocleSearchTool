@@ -5,9 +5,11 @@
 
 #include "../headers/fileManagement.h"
 
+#define SIZEOFCHAR 100
+
 void readingFolderFiles(char* fileName) {
     char fileDirectory[] = "files/";
-    char fileNewName[100]; 
+    char fileNewName[SIZEOFCHAR]; 
     strcpy(fileNewName, fileName);
     strcat(fileDirectory, fileNewName);
     cleanFiles();
@@ -16,7 +18,7 @@ void readingFolderFiles(char* fileName) {
 
 int readSrcFile(char* fileDirectory) {
     int filesInfile;
-    char docName[100];
+    char docName[SIZEOFCHAR];
     FILE *srcFile = NULL;
     srcFile = fopen(fileDirectory, "r");
     if (srcFile == NULL) {
@@ -32,14 +34,14 @@ int readSrcFile(char* fileDirectory) {
 
 void readingDocFiles(char* docName) {
     char docDirectory[] = "files/";
-    char docNewName[100]; 
+    char docNewName[SIZEOFCHAR]; 
     strcpy(docNewName, docName);
     strcat(docDirectory, docNewName);
     readDocText(docDirectory);
 }
 
 int readDocText(char* docDirectory) {    int filesInfile;
-    char textWord[100];
+    char textWord[SIZEOFCHAR];
     FILE *docFile = NULL;
     docFile = fopen(docDirectory, "r");
     if (docFile == NULL) {

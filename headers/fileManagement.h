@@ -13,4 +13,4 @@ void readingFolderFiles(char* fileName);
 int readSrcFile(char* fileDirectory);
 void readingDocFiles(char* docName);
 int readDocText(char* docDirectory);
-void cleanFiles();
+void cleanFiles(); // Para mais detalhes ver clean_files.py
