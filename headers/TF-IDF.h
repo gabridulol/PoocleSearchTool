@@ -3,6 +3,8 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
+// Implementação TF-IDF (Term frequency – Inverse Document Frequency)
+
 #include <stdio.h>
 #include <stdlib.h>
 

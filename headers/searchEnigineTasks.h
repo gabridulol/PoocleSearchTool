@@ -18,3 +18,5 @@
 //      d) realizar buscas por um ou mais termo(s) de busca, no índice construído, 
 //      apresentando os arquivos ordenados por relevância.
 // Interface gráfica de interação com o usuário...
+
+// Implementação de funções do Buscador Poocle
