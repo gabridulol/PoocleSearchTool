@@ -6,3 +6,19 @@
 // Implementação de PATRICIA e suas funções
 
 #include "../headers/searchTerm.h"
+
+typedef enum {
+    inn, ext
+} typeNode;
+typedef struct typePatNode* typePatPointer;
+typedef struct typePatNode {
+    typeNode InnExt;
+    union {
+        struct {
+            unsigned char index;
+            typePatPointer left;
+            typePatPointer right;
+        } typeInnNode;
+        typeSearchTerm data;
+    } typeExtNode;
+} typePatNode;
