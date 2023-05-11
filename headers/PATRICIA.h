@@ -3,39 +3,40 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-// Implementação de PATRICIA e suas operações
+// Implementação de PATRICIA e suas funções
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "../headers/TF-IDF.h"
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
 
-typedef unsigned char TipoDib;
-typedef unsigned char TipoIndexAmp;
-typedef struct {
-   char *word;
-   typeLinkedList LinkedList;
-}typeWord;
+// #include "../headers/TF-IDF.h"
 
-typedef enum
-{
-   internal, external 
-} typeNode;
+// typedef unsigned char TipoDib;
+// typedef unsigned char TipoIndexAmp;
+// typedef struct {
+//    char *word;
+//    typeLinkedList LinkedList;
+// }typeWord;
 
-typedef struct typePatty *typePPointer;
-typedef struct tipePatty
-{
-    typeNode Interno_Externo;
-    union
-    {
-        struct
-        {
-            TipoIndexAmp Index;
-            typePPointer left, right;
-            char letterActually;
-        } nodeInternal;
-        typeWord patword;
-    } NODE;
-} typePatty;
+// typedef enum
+// {
+//    internal, external 
+// } typeNode;
 
-void startPatty(typePatty *patty);
+// typedef struct typePatty *typePPointer;
+// typedef struct tipePatty
+// {
+//     typeNode Interno_Externo;
+//     union
+//     {
+//         struct
+//         {
+//             TipoIndexAmp Index;
+//             typePPointer left, right;
+//             char letterActually;
+//         } nodeInternal;
+//         typeWord patword;
+//     } NODE;
+// } typePatty;
+
+// void startPatty(typePatty *patty);

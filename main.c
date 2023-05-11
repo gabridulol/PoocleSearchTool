@@ -6,9 +6,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "./headers/searchEnigineTasks.h"
+#include "./headers/TF-IDFWord.h"
 
 int main() {
-    getFile();
+    printf("Hello, World!\n");
     return 0;
 }

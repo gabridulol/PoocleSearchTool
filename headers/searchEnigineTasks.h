@@ -18,7 +18,7 @@
 //      d) realizar buscas por um ou mais termo(s) de busca, no índice construído, 
 //      apresentando os arquivos ordenados por relevância.
 
-// Implementação de funções do Buscador Poocle
+// Implementação do Buscador Poocle  e suas funções
 
 #include <stdio.h>
 #include <stdlib.h>
