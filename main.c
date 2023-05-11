@@ -12,4 +12,3 @@ int main() {
     getFile();
     return 0;
 }
-//cu

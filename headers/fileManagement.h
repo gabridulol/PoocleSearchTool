@@ -16,8 +16,8 @@ void readingFolderFiles(char* fileName);
 // Função para ler o arquivo "entradas.txt"
 int readSrcFile(char* fileDirectory);
 // Função para indicar o diretório dos arquivos "arquivoN.txt"
-void readingDocFiles(char* docName);
+void readingDocFiles(char* docName, int isIdDoc);
 // Função para ler o arquivo específico "arquivoN.txt"
-int readDocText(char* docDirectory);
+int readDocText(char* docDirectory, int isIdDoc);
 // Função para tratar o texto antes de fazer todo o trabalho
 void cleanFiles(); // Para mais detalhes ver clean_files.py

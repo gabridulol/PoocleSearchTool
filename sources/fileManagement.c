@@ -16,6 +16,7 @@ void readingFolderFiles(char* fileName) {
 
 int readSrcFile(char* fileDirectory) {
     int filesInfile;
+    int isIdDoc = 1;
     char docName[SIZEOFCHAR];
     FILE *srcFile = NULL;
     srcFile = fopen(fileDirectory, "r");
@@ -25,33 +26,31 @@ int readSrcFile(char* fileDirectory) {
     fscanf(srcFile, "%d", &filesInfile);
     for (int i = 0; i < filesInfile; i++) {
         fscanf(srcFile, "%s", docName);
-        readingDocFiles(docName);
+        readingDocFiles(docName, isIdDoc);
+        isIdDoc++;
     }
     fclose(srcFile);
 }
 
-void readingDocFiles(char* docName) {
+void readingDocFiles(char* docName, int isIdDoc) {
     char docDirectory[] = "files/";
     char docNewName[SIZEOFCHAR]; 
     strcpy(docNewName, docName);
     strcat(docDirectory, docNewName);
-    readDocText(docDirectory);
+    readDocText(docDirectory, isIdDoc);
 }
 
-int readDocText(char* docDirectory) {
-    int isIdDoc;
+int readDocText(char* docDirectory, int isIdDoc) {
     char textWord[SIZEOFCHAR];
     FILE *docFile = NULL;
     docFile = fopen(docDirectory, "r");
     if (docFile == NULL) {
         return -1;
     }
-    while (fgets(textWord, sizeof(textWord), docFile) != NULL) {
-        printf("%s\n", textWord);
+    while (fscanf(docFile, "%s", textWord) != EOF) {
+        printf("Word: %s | Doc:%d\n", textWord, isIdDoc);
     }
     fclose(docFile);
-    printf("%d", isIdDoc);
-    isIdDoc++;
 }
 
 void cleanFiles() {
