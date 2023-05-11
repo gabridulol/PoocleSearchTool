@@ -9,6 +9,6 @@
 #include "./headers/fileManagement.h"
 
 int main() {
-    printf("Hello, World!\n");
+    readingFolderFiles("entradas.txt");
     return 0;
 }
