@@ -17,7 +17,7 @@ def fileManagement(src_filename): # Declaração da função read_clean_file que
             with open(filename, 'r') as file: # Abre o arquivo específico desta iteração, "arquivoN.txt", no modo leitura
                 text = file.read() # Armazena tudo o que está escrito no arquivo na lista text
                 text = re.sub(r'\W', ' ', text) # Remove qualquer caractere não alfanumérico de cada palavra através de expressões regulares do padrão \W
-                text = re.sub(r'\D', ' ', text) # Remove qualquer caractere númérico através de expressões regulares do padrão \D
+                text = re.sub(r'\d', ' ', text) # Remove qualquer caractere númérico através de expressões regulares do padrão \d
                 text = text.lower().split() # Converte todas as palavavras para minúsculo através da função .lower e as separa com .split
                 text = [word for word in text if word.lower() not in stop_words] # Remove stopwrds percorrendo a lista text e verificando se é uma stopword
                 with open(filename, 'w') as file: # Abertura do mesmo arquivo, só que agora para escrita
