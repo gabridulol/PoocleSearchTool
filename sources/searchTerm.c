@@ -3,7 +3,7 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-#include "../headers/TF-IDFWord.h"
+#include "../headers/searchTerm.h"
 
 typeSearchTerm* startSearchTerm() {
     typeSearchTerm* searchTerm = (typeSearchTerm*) malloc(sizeof(typeSearchTerm));
@@ -12,10 +12,10 @@ typeSearchTerm* startSearchTerm() {
     return searchTerm;
 }
 
-
-void defineSearchTerm(typeSearchTerm* searchTerm, char* textWord) {
+void defineSearchTerm(typeSearchTerm* searchTerm, char* textWord, int qtde, int idDoc) {
     searchTerm -> wordChar = (char*) malloc(sizeof(char) * (strlen(textWord) + 1));
     strcpy(searchTerm -> wordChar, textWord);
+    insertListTfIdf(searchTerm -> listTfIdf, qtde, idDoc);
 }
 
 void printSearchTerm(typeSearchTerm searchTerm) {

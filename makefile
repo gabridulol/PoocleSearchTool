@@ -1,3 +1,3 @@
 all:
-	gcc main.c sources/TF-IDFList.c sources/TF-IDFWord.c -o e
+	gcc main.c sources/TF-IDF.c sources/searchTerm.c sources/PATRICIA.c sources/fileManagement.c -o e
 	./e

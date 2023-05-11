@@ -5,9 +5,8 @@
 
 // Implementação do manejador de arquivos  e suas funções
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "../headers/PATRICIA.h"
+
 
 #define SIZEOFCHAR 100 // Definindo tamanho máximo para uma variável tipo char
 

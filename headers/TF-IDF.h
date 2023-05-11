@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Estrutura do item TF-IDF
 typedef struct tfIdf {
@@ -27,7 +28,7 @@ typedef struct listTfIdf {
 
 // Função para inicar a lista encadeada de itens TF-IDF
 void startListTfIdf(typeListTfIdf* listTfIdf);
-// Função para inserir a lista encadeada de itens TF-IDF
-void insertListTfIdf(typeListTfIdf* listTfIdf, typeTfIdf itemTfidf);
+// Função para inserir na lista encadeada de itens TF-IDF
+void insertListTfIdf(typeListTfIdf* listTfIdf, int qtde, int idDoc);
 // Função para imprimir a lista encadeada de itens TF-IDF
 void printListTfIdf(typeListTfIdf listTfIdf);

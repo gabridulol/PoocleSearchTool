@@ -48,7 +48,7 @@ int readDocText(char* docDirectory, int isIdDoc) {
         return -1;
     }
     while (fscanf(docFile, "%s", textWord) != EOF) {
-        printf("Word: %s | Doc:%d\n", textWord, isIdDoc);
+        
     }
     fclose(docFile);
 }
