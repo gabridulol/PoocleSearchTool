@@ -55,5 +55,5 @@ int readDocText(char* docDirectory, int isQtde, int isIdDoc) {
 }
 
 void cleanFiles() {
-    system("python3 files/clean_files.py");
+    system("python3 files/fileManagement.py");
 }
