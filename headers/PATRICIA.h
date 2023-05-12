@@ -15,7 +15,8 @@ typedef struct typePatNode {
     typeNode InnExt;
     union {
         struct {
-            unsigned char index;
+            int index;
+            char charIndex;
             typePatPointer left;
             typePatPointer right;
         } typeInnNode;

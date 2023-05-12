@@ -10,7 +10,6 @@
 // Estrutura do TERMO DE BUSCA
 typedef struct searchTerm {
     char* wordChar;
-    float weight;
     typeListTfIdf* listTfIdf;
 } typeSearchTerm;
 

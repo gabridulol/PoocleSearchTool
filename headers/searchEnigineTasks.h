@@ -10,12 +10,12 @@
 // 4 - Buscar por textos com base em termos de busca
 // 5 - MENU
 //      a) receber o arquivo de entrada com os
-//      textos a serem indexados; 
+//      textos a serem indexados;
 //      b) construir o índice invertido, a partir dos textos de entrada,
-//      usando o TAD árvore PATRICIA; 
+//      usando o TAD árvore PATRICIA;
 //      c) imprimir o índice invertido, contendo as palavras em
-//      ordem alfabética, uma por linha, com suas respectivas listas de ocorrências; 
-//      d) realizar buscas por um ou mais termo(s) de busca, no índice construído, 
+//      ordem alfabética, uma por linha, com suas respectivas listas de ocorrências;
+//      d) realizar buscas por um ou mais termo(s) de busca, no índice construído,
 //      apresentando os arquivos ordenados por relevância.
 
 // Implementação do Buscador Poocle  e suas funções
