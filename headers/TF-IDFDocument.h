@@ -17,7 +17,6 @@ typedef struct doc {
     // Informação para cálculo de relevância do documento
     float rDoc; // Relevância do documento na lista de documentos
     float wSearchTerm; // Peso do termo pesquisado no documento
-    int nDocs; // Quantidade de documentos na lista de documentos
     int nTerms; // Quantidade de termos distintos no documento
     int nSearchTerms; // Quantidade de termos do termo pesquisado no documento
 } typeDoc;
@@ -31,12 +30,16 @@ typedef struct typeDocCell {
 
 // Estrutura da lista encadeada do
 typedef struct docList {
+    int nDocs; // Quantidade de documentos na lista de documentos
     typeDocPointer firstCell;
     typeDocPointer lastCell;
 } typeDocList;
 
 void startDocList(typeDocList* docList);
 void insertDocList(typeDocList* docList, char* docName, int idDoc);
-int totalDocList(typeDocList* docList);
-void copyDocList(typeDocList *docList);
+void mallocNewDoc(typeDocList* docList, char* docName, int idDoc);
+void rDocPrint(typeDocList docList);
+void copyDocList(typeDocList* docList, typeDoc* newDocList, int size);
+void selectPrint(typeDoc* newDocList, int size);
+int totalDocList(typeDocList docList);
 void printDocList(typeDocList docList);
