@@ -3,13 +3,13 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-// Implementação da lista encadeada de DOCUMENTOS a serem indexados e suas funções
+// Implementação da lista de documentos a serem indexados e suas funções
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-// Estrutura do DOCUMENTO
+// Estrutura do documento
 typedef struct doc {
     // Informações básicas do documento
     char* docName; // Nome do documento
@@ -21,25 +21,33 @@ typedef struct doc {
     int nSearchTerms; // Quantidade de termos do termo pesquisado no documento
 } typeDoc;
 
-// Estrutura da célula do item DOCUMENTO
+// Estrutura da célula do documento
 typedef struct typeDocCell* typeDocPointer;
 typedef struct typeDocCell {
     typeDoc itemDoc;
     typeDocPointer nextCell;
 } typeDocCell;
 
-// Estrutura da lista encadeada do
+// Estrutura da lista encadeada de documentos
 typedef struct docList {
     int nDocs; // Quantidade de documentos na lista de documentos
     typeDocPointer firstCell;
     typeDocPointer lastCell;
 } typeDocList;
 
+// Função para iniciar a lista encadeada
 void startDocList(typeDocList* docList);
+// Função para inserir na lista encadeada
 void insertDocList(typeDocList* docList, char* docName, int idDoc);
+// Função para alocar memória e dados de inserção
 void mallocNewDoc(typeDocList* docList, char* docName, int idDoc);
-void rDocPrint(typeDocList docList);
-void copyDocList(typeDocList* docList, typeDoc* newDocList, int size);
-void selectPrint(typeDoc* newDocList, int size);
+// Função para retornar o tamanho da lista encadeada
 int totalDocList(typeDocList docList);
+// Função para imprimir a lista encadeada
 void printDocList(typeDocList docList);
+// Função para imprimir a lista de documentos por ordem de relevância
+void rDocPrint(typeDocList docList);
+// Função para fazer uma cópia da lista encadeada
+void copyDocList(typeDocList* docList, typeDoc* newDocList, int size);
+// Função para ordenar a cópia da lista encadeda pelo método Selection Sort
+void selectionSort(typeDoc* newDocList, int size);

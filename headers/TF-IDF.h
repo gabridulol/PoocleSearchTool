@@ -5,9 +5,7 @@
 
 // Implementação TF-IDF (Term frequency – Inverse Document Frequency) e suas funções
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "../headers/docList.h"
 
 // Estrutura do item TF-IDF
 typedef struct tfIdf {

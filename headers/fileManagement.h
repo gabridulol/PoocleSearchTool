@@ -3,7 +3,7 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-// Implementação do manejador de arquivos  e suas funções
+// Implementação do manejador de arquivos e suas funções
 
 #include "../headers/PATRICIA.h"
 

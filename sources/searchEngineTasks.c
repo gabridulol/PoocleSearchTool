@@ -3,7 +3,7 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-#include "../headers/searchEnigineTasks.h"
+#include "../headers/searchEngineTasks.h"
 
 void getFile() {
     readingFolderFiles("entradas.txt");

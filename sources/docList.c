@@ -3,7 +3,7 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-#include "../headers/TF-IDFDocument.h"
+#include "../headers/docList.h"
 
 void startDocList(typeDocList* docList) {
     docList -> firstCell = (typeDocCell*) malloc(sizeof(typeDocCell));
@@ -38,13 +38,21 @@ int totalDocList(typeDocList docList) {
     return nDocs;
 }
 
+void printDocList(typeDocList docList) {
+    typeDocPointer auxPrint = docList.firstCell -> nextCell;
+    while (auxPrint != NULL) {
+        printf("Texto %d (%s)\n", auxPrint -> itemDoc.idDoc, auxPrint -> itemDoc.docName);
+        auxPrint = auxPrint -> nextCell;
+    }
+}
+
 void rDocPrint(typeDocList docList) {
     int nDocs = totalDocList(docList);
     typeDoc* newDocList = (typeDoc*) malloc(nDocs * sizeof(typeDoc));
     copyDocList(&docList, newDocList, nDocs);
-    selectPrint(newDocList, nDocs);
-    for (size_t k = 0; k < nDocs; k++) {
-        printf("Text %d (%s)\n", newDocList[k].idDoc, newDocList->docName);
+    selectionSort(newDocList, nDocs);
+    for (int i = 0; i < nDocs; i++) {
+        printf("Text %d (%s)\n", newDocList[i].idDoc, newDocList[i].docName);
     }
     free(newDocList);
 }
@@ -59,7 +67,7 @@ void copyDocList(typeDocList* docList, typeDoc* newDocList, int size) {
     }
 }
 
-void selectPrint(typeDoc* newDocList, int size) {
+void selectionSort(typeDoc* newDocList, int size) {
     int index;
     typeDoc aux;
     for (int i = 0; i < size - 1; i++) {
@@ -72,13 +80,5 @@ void selectPrint(typeDoc* newDocList, int size) {
         aux = newDocList[index];
         newDocList[index] = newDocList[i];
         newDocList[i] = aux;
-    }
-}
-
-void printDocList(typeDocList docList) {
-    typeDocPointer auxPrint = docList.firstCell -> nextCell;
-    while (auxPrint != NULL) {
-        printf("Texto %d (%s)\n", auxPrint -> itemDoc.idDoc, auxPrint -> itemDoc.docName);
-        auxPrint = auxPrint -> nextCell;
     }
 }
