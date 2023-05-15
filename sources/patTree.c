@@ -1,23 +1,20 @@
-// // Gabriel Rodrigues Marques - 5097
-// // Alan Araújo dos Reis - 5096
-// // Marcos Biscotto de Oliveira - 4236
-// // Luiz César Galvão Lima - 4216
+// Gabriel Rodrigues Marques - 5097
+// Alan Araújo dos Reis - 5096
+// Marcos Biscotto de Oliveira - 4236
+// Luiz César Galvão Lima - 4216
 
 #include "../headers/patTree.h"
 
-void startPatTree(typePatPointer *patTree){
+void startPatTree(typePatPointer *patTree) {
     *patTree = NULL;
 }
 
-int ifNodeExt(typePatPointer patTree){
+int ifNodeExt(typePatPointer patTree) {
     return (patTree -> InnExt == ext);
 }
 
-char bit(int diffIndex, typeWordle* wordle){
-    if (diffIndex > strlen(wordle->wordChar)) {
-        return NULL;
-    }
-    return wordle -> wordChar[diffIndex];
+char bit(int diffIndex, typeWordle* wordle) {
+    return wordle -> wordChar[diffIndex - 1];
 }
 
 // typePatPointer startNodeInn(typePatPointer *left, typePatPointer *right, int index, char charindex){
