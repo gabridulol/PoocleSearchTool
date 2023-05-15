@@ -8,25 +8,27 @@
 #include "../headers/docList.h"
 
 // Estrutura do item TF-IDF
-typedef struct tfIdf {
+typedef struct index {
     int qtde; // Quantidade
     int idDoc; // Documento
-} typeTfIdf;
+} typeIndex;
 // Estrutura da célula do item TF-IDF
-typedef struct typeCell* typePointer;
-typedef struct typeCell {
-    typeTfIdf itemTfIdf;
-    typePointer nextCell;
-} typeCell;
+typedef struct typeIndexCell* typeIndexPointer;
+typedef struct typeIndexCell {
+    typeIndex itemIndex;
+    typeIndexPointer nextCell;
+} typeIndexCell;
 // Estrutura da lista encadeada do item TF-IDF
-typedef struct listTfIdf {
-    typePointer firstCell;
-    typePointer lastCell;
-} typeListTfIdf;
+typedef struct indexList {
+    typeIndexPointer firstCell;
+    typeIndexPointer lastCell;
+} typeIndexList;
 
 // Função para inicar a lista encadeada de itens TF-IDF
-void startListTfIdf(typeListTfIdf* listTfIdf);
+void startIndexList(typeIndexList* indexList);
 // Função para inserir na lista encadeada de itens TF-IDF
-void insertListTfIdf(typeListTfIdf* listTfIdf, int qtde, int idDoc);
+void insertIndexList(typeIndexList* indexList, int idDoc);
+// Função para procurar o indíce de um arquivo específico
+typeIndexPointer findIdDoc(typeIndexList indexList, int idDoc);
 // Função para imprimir a lista encadeada de itens TF-IDF
-void printListTfIdf(typeListTfIdf listTfIdf);
+void printIndexList(typeIndexList indexList);

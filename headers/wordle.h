@@ -5,17 +5,17 @@
 
 // Implementação do TERMO DE BUSCA do texto (PALAVRA + PESO + TF-IDF) e suas funções
 
-#include "../headers/TF-IDF.h"
+#include "../headers/index.h"
 
 // Estrutura do TERMO DE BUSCA
-typedef struct searchTerm {
+typedef struct wordle {
     char* wordChar;
-    typeListTfIdf* listTfIdf;
-} typeSearchTerm;
+    typeIndexList* indexList;
+} typeWordle;
 
 // Função para iniciar um TERMO DE BUSCA
-typeSearchTerm* startSearchTerm();
+typeWordle* startSearchTerm();
 // Função para definir um TERMO DE BUSCA
-void defineSearchTerm(typeSearchTerm* searchTerm, char* textWord, int qtde, int idDoc);
+void defineWordle(typeWordle* wordle, char* textWord, int idDoc);
 // Função para imprimir um TERMO DE BUSCA
-void printSearchTerm(typeSearchTerm searchTerm);
+void printWordle(typeWordle wordle);

@@ -9,33 +9,33 @@ void startDocList(typeDocList* docList) {
     docList -> firstCell = (typeDocCell*) malloc(sizeof(typeDocCell));
     docList -> firstCell -> nextCell = NULL;
     docList -> lastCell = docList -> firstCell;
+    docList -> nDocs = 0;
 }
 
 void insertDocList(typeDocList* docList, char* docName, int idDoc) {
     docList -> lastCell -> nextCell = (typeDocCell*) malloc(sizeof(typeDocCell));
     docList -> lastCell = docList -> lastCell -> nextCell;
-    mallocNewDoc(docList, docName, idDoc);
+    defineDoc(docList, docName, idDoc);
     docList -> lastCell -> nextCell = NULL;
+    docList -> nDocs++;
 }
 
-void mallocNewDoc(typeDocList* docList, char* docName, int idDoc) {
+void defineDoc(typeDocList* docList, char* docName, int idDoc) {
     docList -> lastCell -> itemDoc.docName = (char*) malloc(sizeof(char) * (strlen(docName) + 1));
     strcpy(docList -> lastCell -> itemDoc.docName, docName);
     docList -> lastCell -> itemDoc.idDoc = idDoc;
-    docList -> lastCell -> itemDoc.rDoc = 0;
-    docList -> lastCell -> itemDoc.wSearchTerm = 0;
-    docList -> lastCell -> itemDoc.nTerms = 0; 
-    docList -> lastCell -> itemDoc.nSearchTerms = 0;
+    docList -> lastCell -> itemDoc.nWordle = 0;
 }
 
-int totalDocList(typeDocList docList) {
-    int nDocs = 0;
-    typeDocPointer auxPrint = docList.firstCell -> nextCell;
-    while (auxPrint != NULL) {
-        nDocs++;
-        auxPrint = auxPrint -> nextCell;
+typeDocPointer findDoc(typeDocList docList, int idDoc) {
+    typeDocPointer auxFind = docList.firstCell -> nextCell;
+    while (auxFind != NULL) {
+        if (auxFind -> itemDoc.idDoc == idDoc) {
+            return auxFind;
+        }
+        auxFind = auxFind -> nextCell;
     }
-    return nDocs;
+    return NULL;
 }
 
 void printDocList(typeDocList docList) {
@@ -47,7 +47,7 @@ void printDocList(typeDocList docList) {
 }
 
 void rDocPrint(typeDocList docList) {
-    int nDocs = totalDocList(docList);
+    int nDocs = docList.nDocs;
     typeDoc* newDocList = (typeDoc*) malloc(nDocs * sizeof(typeDoc));
     copyDocList(&docList, newDocList, nDocs);
     selectionSort(newDocList, nDocs);
@@ -68,8 +68,8 @@ void copyDocList(typeDocList* docList, typeDoc* newDocList, int size) {
 }
 
 void selectionSort(typeDoc* newDocList, int size) {
-    int index;
     typeDoc aux;
+    int index;
     for (int i = 0; i < size - 1; i++) {
         index = i;
         for (int j = index + 1; j < size; j++) {

@@ -1,0 +1,8 @@
+docList ok
+index ok
+wordle ok
+patTree
+fileManagement
+searchEngineTasks
+poocleMenu
+GTKInterface

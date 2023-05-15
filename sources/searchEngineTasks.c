@@ -5,6 +5,6 @@
 
 #include "../headers/searchEngineTasks.h"
 
-void getFile() {
-    readingFolderFiles("entradas.txt");
+void getFile(typeDocList* docList) {
+    readingFolderFiles(docList, "entrada.txt");
 }

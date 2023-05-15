@@ -5,50 +5,52 @@
 
 #include "../headers/fileManagement.h"
 
-void readingFolderFiles(char* fileName) {
+void readingFolderFiles(typeDocList* docList, char* fileName) {
     char fileDirectory[] = "files/";
     char fileNewName[SIZEOFCHAR]; 
     strcpy(fileNewName, fileName);
     strcat(fileDirectory, fileNewName);
     cleanFiles();
-    readSrcFile(fileDirectory);
+    readSrcFile(docList, fileDirectory);
 }
 
-int readSrcFile(char* fileDirectory) {
+int readSrcFile(typeDocList* docList, char* fileDirectory) {
     int filesInfile;
-    int isIdDoc = 1;
-    int isQtde = 1;
     char docName[SIZEOFCHAR];
+    int isIdDocs = 1;
     FILE *srcFile = NULL;
     srcFile = fopen(fileDirectory, "r");
     if (srcFile == NULL) {
         return -1;
     }
+    startDocList(docList);
     fscanf(srcFile, "%d", &filesInfile);
     for (int i = 0; i < filesInfile; i++) {
         fscanf(srcFile, "%s", docName);
-        readingDocFiles(docName, isQtde, isIdDoc);
-        isIdDoc++;
+        insertDocList(docList, docName, isIdDocs);
+        isIdDocs++;
     }
     fclose(srcFile);
 }
 
-void readingDocFiles(char* docName, int isQtde, int isIdDoc) {
+void readingDocFiles(typeDocList* docList, char* docName, int isIdDoc) {
     char docDirectory[] = "files/";
     char docNewName[SIZEOFCHAR]; 
     strcpy(docNewName, docName);
     strcat(docDirectory, docNewName);
-    readDocText(docDirectory, isQtde, isIdDoc);
+    readDocText(docList, docDirectory, isIdDoc);
 }
 
-int readDocText(char* docDirectory, int isQtde, int isIdDoc) {
+int readDocText(typeDocList* docList, char* docDirectory, int isIdDoc) {
     char textWord[SIZEOFCHAR];
+    char isQtde = 1;
     FILE *docFile = NULL;
     docFile = fopen(docDirectory, "r");
     if (docFile == NULL) {
         return -1;
     }
     while (fscanf(docFile, "%s", textWord) != EOF) {
+        // Insere na PATRÍCIA
         printf("%s <%d, %d>\n\n", textWord, isQtde, isIdDoc);
     }
     fclose(docFile);

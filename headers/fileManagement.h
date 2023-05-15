@@ -5,18 +5,17 @@
 
 // Implementação do manejador de arquivos e suas funções
 
-#include "../headers/PATRICIA.h"
-
+#include "../headers/patTree.h"
 
 #define SIZEOFCHAR 100 // Definindo tamanho máximo para uma variável tipo char
 
 // Função geral para ler os arquivos da pasta files e indicar o diretório do arquivo "entradas.txt"
-void readingFolderFiles(char* fileName);
+void readingFolderFiles(typeDocList* docList, char* fileName);
 // Função para ler o arquivo "entradas.txt"
-int readSrcFile(char* fileDirectory);
+int readSrcFile(typeDocList* docList, char* fileDirectory);
 // Função para indicar o diretório dos arquivos "arquivoN.txt"
-void readingDocFiles(char* docName, int isQtde, int isIdDoc);
+void readingDocFiles(typeDocList* docList, char* docName, int isIdDoc);
 // Função para ler o arquivo específico "arquivoN.txt"
-int readDocText(char* docDirectory, int isQtde, int isIdDoc);
+int readDocText(typeDocList* docList, char* docDirectory, int isIdDoc);
 // Função para tratar o texto antes de fazer todo o trabalho
-void cleanFiles(); // Para mais detalhes ver clean_files.py
+void cleanFiles(); // Para mais detalhes ver fileManagement.py

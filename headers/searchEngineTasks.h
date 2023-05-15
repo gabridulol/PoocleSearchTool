@@ -20,18 +20,13 @@
 
 // Implementação do Buscador Poocle  e suas funções
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "../headers/fileManagement.h"
 
 // Função que recebe o arquivo de entrada
-void getFile();
+void getFile(typeDocList* docList);
 // Função que constrói o índice invertido
 void buildInvertedIndex();
 // Função que imprime o índice invertido
 void printInvertedIndex();
 // Função que realiza busca com base em termos de busca
 void searchTool();
-// Função MENU
-void poocleMenu();

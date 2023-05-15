@@ -24,4 +24,4 @@ def fileManagement(src_filename): # Declaração da função read_clean_file que
                     pass # Limpa o arquivo a ser escrito
                     for text in text: # Estrutura de repetição para acessar cada palavra da lista text
                         file.write(text + '\n') # Escreve no arquivo a palavra e salta uma linha
-fileManagement("files/entradas.txt") # Chamada da função fileManagement passando o diretório do arquivo
+fileManagement("files/entrada.txt") # Chamada da função fileManagement passando o diretório do arquivo
