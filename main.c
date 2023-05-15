@@ -3,12 +3,7 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-#include <stdio.h>
-#include <stdlib.h>
-// #include "./headers/poocleMenu.h"
-
 #include "./headers/poocleMenu.h"
-
 
 int main() {
     printf("Hello, World!\n");

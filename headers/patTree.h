@@ -24,12 +24,15 @@ typedef struct typePatNode {
     } typeExtNode;
 } typePatNode;
 
-// //Inicialização da PATRICIA ***********PASSAR docList como parâmetro*******************
-// void startPatty(typePatPointer *patty);
-// //Funções auxiliares
-// int ifNodeExt(typePatPointer patty); //Verifica se o node eh externo
-// char Bit(int indexDiferentLetter, typeSearchTerm *data);//Retorna a i-esima letra que difere
-// //...
+// ***********PASSAR docList como parâmetro*******************
+// Função para iniciar a árvore PATRICIA
+void startPatTree(typePatPointer* patTree);
+//Funções para verificar se nó da PATRICIA é externo
+int isExt(typePatPointer patTree);
+// Função para ????
+char bit(int diffIndex, typeWordle* wordle);
+
+
 // //Funções para criações de node
 // typePatPointer startNodeInn(typePatPointer *left, typePatPointer *right, int index, char charindex);
 // typePatPointer starNodeExt(typeSearchTerm *data);

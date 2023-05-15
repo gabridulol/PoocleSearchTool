@@ -3,4 +3,4 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-#include <gtk/gtk.h>
+#include "../GTKProject/GTKInterface.h"

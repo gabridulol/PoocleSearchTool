@@ -5,17 +5,20 @@
 
 #include "../headers/patTree.h"
 
-// void startPatty(typePatPointer *patty){
-//     *patty = NULL;
-// }
+void startPatTree(typePatPointer *patTree){
+    *patTree = NULL;
+}
 
-// int ifNodeExt(typePatPointer patty){
-//     return(patty->InnExt==ext);
-// }
+int ifNodeExt(typePatPointer patTree){
+    return (patTree -> InnExt == ext);
+}
 
-// char Bit(int indexDiferentLetter, typeSearchTerm *data){
-//     return(data->wordChar[indexDiferentLetter - 1]);
-// }
+char bit(int diffIndex, typeWordle* wordle){
+    if (diffIndex > strlen(wordle->wordChar)) {
+        return NULL;
+    }
+    return wordle -> wordChar[diffIndex];
+}
 
 // typePatPointer startNodeInn(typePatPointer *left, typePatPointer *right, int index, char charindex){
 //     typePatPointer aux;
