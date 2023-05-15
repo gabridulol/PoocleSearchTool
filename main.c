@@ -6,5 +6,6 @@
 #include "./headers/poocleMenu.h"
 
 int main() {
+    type
     return 0;
 }

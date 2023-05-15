@@ -13,8 +13,8 @@ int ifNodeExt(typePatPointer patTree) {
     return (patTree -> InnExt == ext);
 }
 
-char bit(int diffIndex, typeWordle* wordle) {
-    return wordle -> wordChar[diffIndex - 1];
+char bit(int diffIndex, typeWordle* wordleData) {
+    return wordleData -> wordChar[diffIndex - 1];
 }
 
 typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int index, char charIndex) {
@@ -28,11 +28,11 @@ typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int ind
     return aux;
 }
 
-typePatPointer startNodeExt(typeWordle *wordle){
+typePatPointer startNodeExt(typeWordle *wordleData){
     typePatPointer aux;
     aux = (typePatNode*) malloc(sizeof(typePatNode));
     aux -> InnExt = ext;
-    aux -> typeExtNode.data = *wordle;
+    aux -> typeExtNode.wordle = *wordleData;
 }
 
 // void searchPat(typePatPointer patty, char searchWord){
