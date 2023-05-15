@@ -14,7 +14,7 @@ typedef struct wordle {
 } typeWordle;
 
 // Função para iniciar um TERMO DE BUSCA
-typeWordle* startSearchTerm();
+typeWordle* startWordle();
 // Função para definir um TERMO DE BUSCA
 void defineWordle(typeWordle* wordle, char* textWord, int idDoc);
 // Função para imprimir um TERMO DE BUSCA
