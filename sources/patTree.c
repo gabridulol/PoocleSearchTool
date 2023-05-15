@@ -17,22 +17,23 @@ char bit(int diffIndex, typeWordle* wordle) {
     return wordle -> wordChar[diffIndex - 1];
 }
 
-// typePatPointer startNodeInn(typePatPointer *left, typePatPointer *right, int index, char charindex){
-//     typePatPointer aux;
-//     aux = (typePatPointer) malloc(sizeof(typePatNode));
-//     aux->InnExt = inn;
-//     aux->typeExtNode.typeInnNode.left = *left;
-//     aux->typeExtNode.typeInnNode.right = *right;
-//     aux->typeExtNode.typeInnNode.index = index;
-//     aux->typeExtNode.typeInnNode.charIndex = charindex;
-//     return aux;
-// }
-// typePatPointer starNodeExt(typeSearchTerm *data){
-//     typePatPointer aux;
-//     aux = (typePatPointer) malloc(sizeof(typePatNode));
-//     aux->InnExt = ext;
-//     aux->typeExtNode.data = *data;
-// }
+typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int index, char charIndex) {
+    typePatPointer aux;
+    aux = (typePatNode*) malloc(sizeof(typePatNode));
+    aux -> InnExt = inn;
+    aux -> typeExtNode.typeInnNode.left = *left;
+    aux -> typeExtNode.typeInnNode.right = *right;
+    aux -> typeExtNode.typeInnNode.index = index;
+    aux -> typeExtNode.typeInnNode.charIndex = charIndex;
+    return aux;
+}
+
+typePatPointer startNodeExt(typeWordle *wordle){
+    typePatPointer aux;
+    aux = (typePatNode*) malloc(sizeof(typePatNode));
+    aux -> InnExt = ext;
+    aux -> typeExtNode.data = *wordle;
+}
 
 // void searchPat(typePatPointer patty, char searchWord){
 //     if(patty != NULL){

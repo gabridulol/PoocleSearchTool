@@ -33,9 +33,11 @@ int isExt(typePatPointer patTree);
 char bit(int diffIndex, typeWordle* wordle);
 
 
-// //Funções para criações de node
-// typePatPointer startNodeInn(typePatPointer *left, typePatPointer *right, int index, char charindex);
-// typePatPointer starNodeExt(typeSearchTerm *data);
+//Funções para criar nós interno e externo da ávore PATRICIA
+typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int index, char charIndex);
+typePatPointer starNodeExt(typeWordle* wordle);
+
+
 // //Função de busca
 // void searchPat(typePatPointer patty, char searchWord);
 // //Funções de inserção
