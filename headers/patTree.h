@@ -20,28 +20,28 @@ typedef struct typePatNode {
             typePatPointer left;
             typePatPointer right;
         } typeInnNode;
-        typeWordle wordle;
+        typeWordle* wordleData;
     } typeExtNode;
 } typePatNode;
 
-// ***********PASSAR docList como parâmetro*******************
 // Função para iniciar a árvore PATRICIA
 void startPatTree(typePatPointer* patTree);
 //Funções para verificar se nó da PATRICIA é externo
 int isExt(typePatPointer patTree);
-// Função para ????
+// Função para retornar o caractere que difere
 char bit(int diffIndex, typeWordle* wordleData);
-
 
 //Funções para criar nós interno e externo da ávore PATRICIA
 typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int index, char charIndex);
 typePatPointer starNodeExt(typeWordle* wordleData);
 
+// // //Função de busca
+// // void searchPat(typePatPointer patty, char searchWord);
+// // //Funções de inserção
 
-// //Função de busca
-// void searchPat(typePatPointer patty, char searchWord);
-// //Funções de inserção
-// typePatPointer insertBetween(typePatPointer *patty, typeSearchTerm *data, int index);
-// typePatPointer insert(typePatPointer *patty, typeSearchTerm *data);
-// //Função de impressão da PATRICIA
-// void printPat(typePatPointer patty);
+typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc);
+// typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, typeWordle wordleData, int i);
+
+
+// // //Função de impressão da PATRICIA
+void printPatTree(typePatPointer patTree);

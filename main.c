@@ -6,6 +6,12 @@
 #include "./headers/poocleMenu.h"
 
 int main() {
-    type
+    typePatPointer patTree;
+    typeDocList docList;
+    startDocList(&docList);
+    insertDocList(&docList, "arquivo1.txt", 1);
+    startPatTree(&patTree);
+    insertPatTree(&patTree, &docList, "palavra", 1);
+    printPatTree(patTree);
     return 0;
 }

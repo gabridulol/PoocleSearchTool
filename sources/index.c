@@ -38,7 +38,7 @@ typeIndexPointer findIdDoc(typeIndexList indexList, int idDoc) {
 void printIndexList(typeIndexList indexList) {
     typeIndexPointer auxPrint = indexList.firstCell -> nextCell;
     while (auxPrint != NULL) {
-        printf("<%d, %d>\n", auxPrint -> itemIndex.qtde, auxPrint -> itemIndex.idDoc);
+        printf("<%d, %d> ", auxPrint -> itemIndex.qtde, auxPrint -> itemIndex.idDoc);
         auxPrint = auxPrint -> nextCell;
     }
 }

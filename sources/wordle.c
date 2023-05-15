@@ -19,6 +19,7 @@ void defineWordle(typeWordle* wordle, char* textWord, int idDoc) {
 }
 
 void printWordle(typeWordle wordle) {
-    printf("%s", wordle.wordChar);
+    printf("%s ", wordle.wordChar);
     printIndexList(*wordle.indexList);
+    printf("\n");
 }

@@ -38,6 +38,17 @@ typeDocPointer findDoc(typeDocList docList, int idDoc) {
     return NULL;
 }
 
+typeDocPointer findDocByRev(typeDocList docList, float rDoc) {
+    typeDocPointer auxFind = docList.firstCell -> nextCell;
+    while (auxFind != NULL) {
+        if (auxFind -> itemDoc.rDoc == rDoc) {
+            return auxFind;
+        }
+        auxFind = auxFind -> nextCell;
+    }
+    return NULL;
+}
+
 void printDocList(typeDocList docList) {
     typeDocPointer auxPrint = docList.firstCell -> nextCell;
     while (auxPrint != NULL) {
@@ -46,39 +57,39 @@ void printDocList(typeDocList docList) {
     }
 }
 
-void rDocPrint(typeDocList docList) {
-    int nDocs = docList.nDocs;
-    typeDoc* newDocList = (typeDoc*) malloc(nDocs * sizeof(typeDoc));
-    copyDocList(&docList, newDocList, nDocs);
-    selectionSort(newDocList, nDocs);
-    for (int i = 0; i < nDocs; i++) {
-        printf("Text %d (%s)\n", newDocList[i].idDoc, newDocList[i].docName);
-    }
-    free(newDocList);
-}
+// void rDocPrint(typeDocList docList) {
+//     int nDocs = docList.nDocs;
+//     typeDoc* newDocList = (typeDoc*) malloc(nDocs * sizeof(typeDoc));
+//     copyDocList(&docList, newDocList, nDocs);
+//     selectionSort(newDocList, nDocs);
+//     for (int i = 0; i < nDocs; i++) {
+//         printf("Text %d (%s)\n", newDocList[i].idDoc, newDocList[i].docName);
+//     }
+//     free(newDocList);
+// }
 
-void copyDocList(typeDocList* docList, typeDoc* newDocList, int size) {
-    int i = 0;
-    typeDocPointer aux = docList -> firstCell -> nextCell;
-    while (aux != NULL) {
-        newDocList[i] = aux -> itemDoc;
-        i++;
-        aux = aux -> nextCell;
-    }
-}
+// void copyDocList(typeDocList* docList, typeDoc* newDocList, int size) {
+//     int i = 0;
+//     typeDocPointer aux = docList -> firstCell -> nextCell;
+//     while (aux != NULL) {
+//         newDocList[i] = aux -> itemDoc;
+//         i++;
+//         aux = aux -> nextCell;
+//     }
+// }
 
-void selectionSort(typeDoc* newDocList, int size) {
-    typeDoc aux;
-    int index;
-    for (int i = 0; i < size - 1; i++) {
-        index = i;
-        for (int j = index + 1; j < size; j++) {
-            if (newDocList[j].rDoc > newDocList[index].rDoc) {
-                index = j;
-            }
-        }
-        aux = newDocList[index];
-        newDocList[index] = newDocList[i];
-        newDocList[i] = aux;
-    }
-}
+// void selectionSort(typeDoc* newDocList, int size) {
+//     typeDoc aux;
+//     int index;
+//     for (int i = 0; i < size - 1; i++) {
+//         index = i;
+//         for (int j = index + 1; j < size; j++) {
+//             if (newDocList[j].rDoc > newDocList[index].rDoc) {
+//                 index = j;
+//             }
+//         }
+//         aux = newDocList[index];
+//         newDocList[index] = newDocList[i];
+//         newDocList[i] = aux;
+//     }
+// }

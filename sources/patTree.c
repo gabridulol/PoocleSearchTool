@@ -5,16 +5,16 @@
 
 #include "../headers/patTree.h"
 
-void startPatTree(typePatPointer *patTree) {
+void startPatTree(typePatPointer* patTree) {
     *patTree = NULL;
 }
 
-int ifNodeExt(typePatPointer patTree) {
+int isExt(typePatPointer patTree) {
     return (patTree -> InnExt == ext);
 }
 
 char bit(int diffIndex, typeWordle* wordleData) {
-    return wordleData -> wordChar[diffIndex - 1];
+    return (wordleData -> wordChar[diffIndex - 1]);
 }
 
 typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int index, char charIndex) {
@@ -28,12 +28,49 @@ typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int ind
     return aux;
 }
 
-typePatPointer startNodeExt(typeWordle *wordleData){
+typePatPointer startNodeExt(typeWordle* wordleData) {
     typePatPointer aux;
     aux = (typePatNode*) malloc(sizeof(typePatNode));
     aux -> InnExt = ext;
-    aux -> typeExtNode.wordle = *wordleData;
+    aux -> typeExtNode.wordleData = startWordle();
 }
+
+typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc) {
+    typeDocPointer auxDoc = findDoc(*docList, idDoc);
+    typeWordle* wordleData = startWordle();
+    defineWordle(wordleData, textWord, idDoc);
+    typePatPointer aux;
+    int i;
+    if (*patTree == NULL) {
+        return startNodeExt(wordleData);
+    }
+    else {
+        aux = *patTree;
+        while (!isExt(aux)) {
+            if (bit(aux -> typeExtNode.typeInnNode.index, wordleData) == 1) {
+                aux = aux -> typeExtNode.typeInnNode.right;
+            }
+            else {
+                aux = aux -> typeExtNode.typeInnNode.left;
+            }
+        }
+        i = 0;
+        while (((i < strlen(wordleData->wordChar)) && (bit(i, wordleData))) == bit(i, aux->typeExtNode.wordleData)) {
+            i++;
+        }
+        if (i > strlen(wordleData->wordChar)) {
+            auxDoc->itemDoc.nWordle++;
+        }
+        else {
+            return NULL;
+        }
+    }
+    free(auxDoc);
+    free(wordleData);
+}
+
+// typePatPointer insertBetween(typePatPointer *patTree, typ    free(auxDoc);eDocList *docList, typeWordle *wordleData, int i) {
+// }
 
 // void searchPat(typePatPointer patty, char searchWord){
 //     if(patty != NULL){
@@ -50,16 +87,15 @@ typePatPointer startNodeExt(typeWordle *wordleData){
 //     }
 // }
 
-
-// void printPat(typePatPointer patty){
-//     if(patty != NULL){
-//         if(patty->InnExt == ext){
-//             printf("%s\n", patty->typeExtNode.data.wordChar);
-//             return;
-//         }
-//         else{
-//             printPat(patty->typeExtNode.typeInnNode.left);
-//             printPat(patty->typeExtNode.typeInnNode.right);
-//         }
-//     }
-// }
+void printPatTree(typePatPointer patTree){
+    if(patTree != NULL){
+        if(patTree->InnExt == ext){
+            printWordle(*patTree->typeExtNode.wordleData);
+            return;
+        }
+        else{
+            printPatTree(patTree->typeExtNode.typeInnNode.left);
+            printPatTree(patTree->typeExtNode.typeInnNode.right);
+        }
+    }
+}
