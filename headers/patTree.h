@@ -20,7 +20,7 @@ typedef struct typePatNode {
             typePatPointer left;
             typePatPointer right;
         } typeInnNode;
-        typeWordle* wordleData;
+        typeWordle *wordleData;
     } typeExtNode;
 } typePatNode;
 
@@ -33,14 +33,14 @@ char bit(int diffIndex, typeWordle* wordleData);
 
 //Funções para criar nós interno e externo da ávore PATRICIA
 typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int index, char charIndex);
-typePatPointer starNodeExt(typeWordle* wordleData);
+typePatPointer startNodeExt(typeWordle* wordleData);
 
 // // //Função de busca
 // // void searchPat(typePatPointer patty, char searchWord);
 // // //Funções de inserção
 
 typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc);
-// typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, typeWordle wordleData, int i);
+typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, typeWordle wordleData, int i, int idDoc, char diferentLetter);
 
 
 // // //Função de impressão da PATRICIA

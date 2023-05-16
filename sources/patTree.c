@@ -39,6 +39,7 @@ typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char
     typeDocPointer auxDoc = findDoc(*docList, idDoc);
     typeWordle* wordleData = startWordle();
     typePatPointer aux;
+    char diferentLetter;
     int i;
     if (*patTree == NULL) {
         return startNodeExt(wordleData);
@@ -59,17 +60,41 @@ typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char
         }
         if (i > strlen(wordleData->wordChar)) {
             auxDoc->itemDoc.nWordle++;
+            return patTree;
         }
         else {
-            return NULL;
+             while (bit(i, wordleData->wordChar) == bit(i, (*patTree)->typeExtNode.wordleData->wordChar)) i++;
+            if (bit(i, wordleData->wordChar) > bit(i, (*patTree)->typeExtNode.wordleData->wordChar)){
+                diferentLetter = wordleData->wordChar[i - 1];
+            }
+            else{
+                diferentLetter = (*patTree)->typeExtNode.wordleData->wordChar[i - 1];
+            }
+            
+            return insertBetween(patTree, docList, *wordleData, i, idDoc, diferentLetter);
         }
     }
     free(auxDoc);
-    free(wordleData);
 }
 
-// typePatPointer insertBetween(typePatPointer *patTree, typ    free(auxDoc);eDocList *docList, typeWordle *wordleData, int i) {
-// }
+typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, typeWordle wordleData, int i, int idDoc, char diferentLetter){
+    typePatPointer aux;
+    typeDocPointer auxDoc = findDoc(*docList, idDoc);
+    if(isExt(patTree) || i < (*patTree)->typeExtNode.typeInnNode.index){
+        aux = starNodeExt(patTree);
+        if(bit(i, wordleData.wordChar) >= bit(i,(*patTree)->typeExtNode.wordleData->wordChar)) return startNodeInn(patTree, &aux, i, diferentLetter);
+        else return startNodeInn(&aux, patTree, i, diferentLetter); 
+    }
+    else{
+        if(bit((*patTree)->typeExtNode.typeInnNode.index, wordleData.wordChar) >= (*patTree)->typeExtNode.typeInnNode.charIndex){
+          (*patTree)->typeExtNode.typeInnNode.right = insertBetween(&(*patTree)->typeExtNode.typeInnNode.right, docList, wordleData, i, idDoc, diferentLetter);
+        }
+        else{
+            (*patTree)->typeExtNode.typeInnNode.left = insertBetween(&(*patTree)->typeExtNode.typeInnNode.left, docList, wordleData, i, idDoc, diferentLetter);
+        }
+        return patTree;
+    }
+ }
 
 // void searchPat(typePatPointer patty, char searchWord){
 //     if(patty != NULL){
