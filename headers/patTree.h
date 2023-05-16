@@ -12,7 +12,7 @@ typedef enum {
 } typeNode;
 typedef struct typePatNode* typePatPointer;
 typedef struct typePatNode {
-    typeNode InnExt;
+    typeNode typeInnExt;
     union {
         struct {
             int index;
@@ -26,22 +26,24 @@ typedef struct typePatNode {
 
 // Função para iniciar a árvore PATRICIA
 void startPatTree(typePatPointer* patTree);
-//Funções para verificar se nó da PATRICIA é externo
+//Funções para verificar se o nó da PATRICIA é externo
 int isExt(typePatPointer patTree);
 // Função para retornar o caractere que difere
 char bit(int diffIndex, typeWordle* wordleData);
-
-//Funções para criar nós interno e externo da ávore PATRICIA
+//Função para criar nó interno da ávore PATRICIA
 typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int index, char charIndex);
-typePatPointer starNodeExt(typeWordle* wordleData);
+// Função para criar nó externo da árvore PATRICIA
+typePatPointer startNodeExt(char* textWord, int idDoc);
 
-// // //Função de busca
-// // void searchPat(typePatPointer patty, char searchWord);
-// // //Funções de inserção
+// Função de de busca de um termo na árvore PATRICÍA
+// int searchPatTree(typePatPointer patTree, char* searchTerm);
+// Função de busca de um nó na árvore PATRÍCIA
+// typePatPointer searchNode(typePatPointer patTree, typeWordle wordleData);
 
+// Função para inserir na árvore PATRICIA
 typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc);
-// typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, typeWordle wordleData, int i);
+// Função para inserir entre na árvore PATRICIA
+typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, typeWordle wordleData, int i);
 
-
-// // //Função de impressão da PATRICIA
+// Função de impressão da árvore PATRICIA em ordem alfabética
 void printPatTree(typePatPointer patTree);

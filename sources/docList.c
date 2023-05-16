@@ -15,12 +15,12 @@ void startDocList(typeDocList* docList) {
 void insertDocList(typeDocList* docList, char* docName, int idDoc) {
     docList -> lastCell -> nextCell = (typeDocCell*) malloc(sizeof(typeDocCell));
     docList -> lastCell = docList -> lastCell -> nextCell;
-    defineDoc(docList, docName, idDoc);
+    fillDoc(docList, docName, idDoc);
     docList -> lastCell -> nextCell = NULL;
     docList -> nDocs++;
 }
 
-void defineDoc(typeDocList* docList, char* docName, int idDoc) {
+void fillDoc(typeDocList* docList, char* docName, int idDoc) {
     docList -> lastCell -> itemDoc.docName = (char*) malloc(sizeof(char) * (strlen(docName) + 1));
     strcpy(docList -> lastCell -> itemDoc.docName, docName);
     docList -> lastCell -> itemDoc.idDoc = idDoc;
@@ -56,6 +56,7 @@ void printDocList(typeDocList docList) {
         auxPrint = auxPrint -> nextCell;
     }
 }
+
 
 // void rDocPrint(typeDocList docList) {
 //     int nDocs = docList.nDocs;

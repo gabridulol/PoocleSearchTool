@@ -38,13 +38,14 @@ void startDocList(typeDocList* docList);
 // Função para inserir na lista encadeada
 void insertDocList(typeDocList* docList, char* docName, int idDoc);
 // Função para alocar memória e dados de inserção
-void defineDoc(typeDocList* docList, char* docName, int idDoc);
+void fillDoc(typeDocList* docList, char* docName, int idDoc);
 // Função para procurar na lista encadeada por idDoc
 typeDocPointer findDoc(typeDocList docList, int idDoc);
 // Função para procurar na lista encadeda por relevância
 typeDocPointer findDocByRev(typeDocList docList, float rDoc);
 // Função para imprimir a lista encadeada
 void printDocList(typeDocList docList);
+
 
 // // Funções para imprimir os arquivos em ordem de relevância
 // // Função para imprimir a lista de documentos por ordem de relevância
