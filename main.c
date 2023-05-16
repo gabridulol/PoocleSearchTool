@@ -10,8 +10,9 @@ int main() {
     typeDocList docList;
     startDocList(&docList);
     insertDocList(&docList, "arquivo1.txt", 1);
+    printDocList(docList);
     startPatTree(&patTree);
     insertPatTree(&patTree, &docList, "palavra", 1);
-    printPatTree(patTree);
+    printWordle(patTree -> typeExtNode.wordleData);
     return 0;
 }

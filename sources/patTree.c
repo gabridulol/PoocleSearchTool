@@ -10,17 +10,13 @@ void startPatTree(typePatPointer* patTree) {
 }
 
 int isExt(typePatPointer patTree) {
-    return (patTree -> InnExt == ext);
-}
-
-char bit(int diffIndex, typeWordle* wordleData) {
-    return (wordleData -> wordChar[diffIndex - 1]);
+    return (patTree -> typeInnExt == ext);
 }
 
 typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int index, char charIndex) {
     typePatPointer aux;
     aux = (typePatNode*) malloc(sizeof(typePatNode));
-    aux -> InnExt = inn;
+    aux -> typeInnExt = inn;
     aux -> typeExtNode.typeInnNode.left = *left;
     aux -> typeExtNode.typeInnNode.right = *right;
     aux -> typeExtNode.typeInnNode.index = index;
@@ -28,11 +24,13 @@ typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int ind
     return aux;
 }
 
-typePatPointer startNodeExt(typeWordle* wordleData) {
+typePatPointer startNodeExt(char* textWord, int idDoc) {
     typePatPointer aux;
     aux = (typePatNode*) malloc(sizeof(typePatNode));
-    aux -> InnExt = ext;
+    aux -> typeInnExt = ext;
     aux -> typeExtNode.wordleData = startWordle();
+    fillWordle(aux -> typeExtNode.wordleData, textWord, idDoc);
+    return aux;
 }
 
 typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc) {
@@ -95,30 +93,39 @@ typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, type
         return patTree;
     }
  }
+    
+}
 
-// void searchPat(typePatPointer patty, char searchWord){
-//     if(patty != NULL){
-//         if(patty->InnExt == ext){
-//             if(strcmp(searchWord, patty->typeExtNode.data.wordChar)==0) printf("Palavra encontrada!!\n");
-//             else printf("Palavra não encontrada!!\n");
-//             return;
-//         }
-//         else{
-//             searchPat(patty->typeExtNode.typeInnNode.left, searchWord);
-//             searchPat(patty->typeExtNode.typeInnNode.right, searchWord);
-//         }
+typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc, int index) {
+    
+}
 
+// int searchPatTree(typePatPointer patTree, char* searchTerm){
+//     if (patTree != NULL){
+//         if (patTree -> typeInnExt == ext){
+//             if (strcmp(searchTerm, patTree -> typeExtNode.wordleData -> wordChar) == 0) {
+//                 return 1;
+//             }
+//             else {
+//                 return 0;
+//             }
+//         }
+//         else {
+//             searchPat(patTree -> typeExtNode.typeInnNode.left, searchTerm);
+//             searchPat(patTree -> typeExtNode.typeInnNode.right, searchTerm);
+//         }
 //     }
 // }
 
 void printPatTree(typePatPointer patTree){
-    if(patTree != NULL){
-        if(patTree -> InnExt == ext){
-            printWordle(*patTree -> typeExtNode.wordleData);
-            return;
-        }
-        else{
+    if (patTree != NULL) {
+        if (patTree -> typeInnExt == inn) {
             printPatTree(patTree -> typeExtNode.typeInnNode.left);
+        }
+        if (patTree -> typeInnExt == ext) {
+            printWordle(*patTree -> typeExtNode.wordleData);
+        }
+        if (patTree -> typeInnExt == inn) {
             printPatTree(patTree -> typeExtNode.typeInnNode.right);
         }
     }
