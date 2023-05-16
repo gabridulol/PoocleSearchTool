@@ -1,0 +1,58 @@
+SENDAS: Scalable ENrichment for mobility DAta Sets
+Abstract. Recent years of technological advancement and popularization has
+grown the availability of mobility data, collected from different sources. Analyzing such data is an active research and industrial development field, with a
+diverse range of applications. However, trajectory data has also been following
+the Big Data trend, and currently existing tools lack of scalability. To cover this
+gap, we introduce Sendas – Scalable ENrichment for mobility DAta Sets –, a
+new Scala library built around the Apache Spark framework, enabling parallel
+and distributed execution for mobility analysis techniques. We present definitions that extend state-of-the-art notions of trajectory naming, flow calculation
+and mobility motif identification, and also conduct comparative performance
+evaluation, finding running time improvements of 4 to 6 times when compared
+to non-parallel execution.
+
+A Genetic Algorithm for Multi-Component Optimization
+Problems: the Case of the Travelling Thief Problem
+ABSTRACT
+Real-world problems many times are characterized by being composed by multiple interdependent components. In
+this case, benchmark problems that do not represent that
+interdependency are not a good choice to assess algorithms
+performance. Recently in the literature a benchmark problem called Travelling Thief Problem was proposed to better represent real-world multi-component problems. TTP is
+a combination of two well-known problems: 0-1 Knapsack
+Problem (KP) and the Travelling Salesman Problem (TSP).
+This paper presents a genetic algorithm-based optimization
+approach called Multi-Component Genetic Algorithm (MCGA)
+for solving TTP. The ideia is solve the overall problem instead of each sub-component separately. Starting from solution for the TSP component, obtained by the Chained
+Lin-Kernighan heuristic, the MCGA applies the evolutionary process (evaluation, selection, crossover, and mutation)
+iteratively using different operators for KP and TSP components. The MCGA was tested on some representative
+instances of TTP available in the literature. The comparisons show that MCGA obtains competitive solutions for
+TTP instances with a number of cities between 51 and 783.
+General Terms
+Algorithms
+Keywords
+Travelling Thief Problem; Genetic Algorithm; Combinatorial problem optimization
+
+Robust Evolutionary Optimization Algorithm for
+Multi-objective Environmental/Economic Dispatch
+Problem with Uncertainties
+Abstract—The economic load dispatch problem has been
+formulated as the minimization of total fuel cost needed to
+generate electricity in power plants. Due to the environmental
+issues that arise from the emissions of polluting gases produced
+by fossil-fueled electric power plants, it becomes the environmental/economic dispatch (EED) multi-objective optimization
+problem. EED problems have been most commonly solved using
+deterministic models (without considering uncertainties). In this
+context, a robust model to cope with uncertainties is necessary,
+because the deterministic model is not able to reflect some real
+condition in practical applications, since fuel cost and emission
+coefficients may be subjected to inaccuracies, for instance. In
+this paper, both deterministic and robust EED problem models
+are first formulated, and the Robust Evolutionary Optimization
+Algorithm - REOA is proposed. For the robust model, the
+worst case scenario is estimated, to find reliable solutions that
+still feasible and have a good performance under the action of
+parametric uncertainties. Comparative studies are carried out to
+examine the effectiveness of the proposed approach. Simulation
+results are presented for the standard IEEE 30-bus system. The
+obtained results are satisfactory compared to the best solutions
+found in the literature.
+Index Terms—Evolutionary Computation, Environmental/Economic Dispatch Problem, Robust Optimization, MultiObjective Optimization

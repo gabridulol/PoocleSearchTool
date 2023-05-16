@@ -12,7 +12,7 @@ typeWordle* startWordle() {
     return wordle;
 }
 
-void defineWordle(typeWordle* wordle, char* textWord, int idDoc) {
+void fillWordle(typeWordle* wordle, char* textWord, int idDoc) {
     wordle -> wordChar = (char*) malloc(sizeof(char) * (strlen(textWord) + 1));
     strcpy(wordle -> wordChar, textWord);
     insertIndexList(wordle -> indexList, idDoc);

@@ -38,7 +38,6 @@ typePatPointer startNodeExt(typeWordle* wordleData) {
 typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc) {
     typeDocPointer auxDoc = findDoc(*docList, idDoc);
     typeWordle* wordleData = startWordle();
-    defineWordle(wordleData, textWord, idDoc);
     typePatPointer aux;
     int i;
     if (*patTree == NULL) {
@@ -89,13 +88,13 @@ typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char
 
 void printPatTree(typePatPointer patTree){
     if(patTree != NULL){
-        if(patTree->InnExt == ext){
-            printWordle(*patTree->typeExtNode.wordleData);
+        if(patTree -> InnExt == ext){
+            printWordle(*patTree -> typeExtNode.wordleData);
             return;
         }
         else{
-            printPatTree(patTree->typeExtNode.typeInnNode.left);
-            printPatTree(patTree->typeExtNode.typeInnNode.right);
+            printPatTree(patTree -> typeExtNode.typeInnNode.left);
+            printPatTree(patTree -> typeExtNode.typeInnNode.right);
         }
     }
 }
