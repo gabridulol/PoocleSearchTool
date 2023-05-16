@@ -43,7 +43,7 @@ typePatPointer startNodeExt(char* textWord, int idDoc);
 // Função para inserir na árvore PATRICIA
 typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc);
 // Função para inserir entre na árvore PATRICIA
-typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, typeWordle wordleData, int i);
+typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc, int i);
 
 // Função de impressão da árvore PATRICIA em ordem alfabética
 void printPatTree(typePatPointer patTree);

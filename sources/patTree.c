@@ -34,12 +34,7 @@ typePatPointer startNodeExt(char* textWord, int idDoc) {
 }
 
 typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc) {
-    typeDocPointer auxDoc = findDoc(*docList, idDoc);
-    typePatPointer auxInsert;
-    int i;
-    if (*patTree == NULL) {
-        return startNodeExt(textWord, idDoc);
-    }
+    
 }
 
 typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc, int index) {
