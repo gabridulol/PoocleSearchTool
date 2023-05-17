@@ -9,6 +9,10 @@ void startPatTree(typePatPointer* patTree) {
     *patTree = NULL;
 }
 
+char bit(int diffIndex, char* textWord) {
+    return textWord[diffIndex - 1];
+}
+
 int isExt(typePatPointer patTree) {
     return (patTree -> typeInnExt == ext);
 }
@@ -24,28 +28,27 @@ typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int ind
     return aux;
 }
 
-typePatPointer startNodeExt(char* textWord, int idDoc) {
+typePatPointer startNodeExt(typeDocList docList, char* textWord, int idDoc) {
+    typeDocPointer doc = findDoc(docList, idDoc); doc -> itemDoc.nWordle++;
     typePatPointer aux;
     aux = (typePatNode*) malloc(sizeof(typePatNode));
     aux -> typeInnExt = ext;
     aux -> typeExtNode.wordleData = startWordle();
-    fillWordle(aux -> typeExtNode.wordleData, textWord, idDoc);
+    fillWordle(&(aux -> typeExtNode.wordleData), textWord, idDoc);
     return aux;
 }
 
-typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc) {
-    typeDocPointer auxDoc = findDoc(*docList, idDoc);
-    typeWordle* wordleData = startWordle();
+typePatPointer insertPatTree(typePatPointer* patTree, typeDocList docList, char* textWord, int idDoc) {
     typePatPointer aux;
-    char diferentLetter;
+    char diffChar;
     int i;
     if (*patTree == NULL) {
-        return startNodeExt(wordleData);
+        return startNodeExt(docList, textWord, idDoc);
     }
     else {
         aux = *patTree;
         while (!isExt(aux)) {
-            if (bit(aux -> typeExtNode.typeInnNode.index, wordleData) == 1) {
+            if (bit(aux -> typeExtNode.typeInnNode.index, textWord) == 1) {
                 aux = aux -> typeExtNode.typeInnNode.right;
             }
             else {
@@ -53,79 +56,57 @@ typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char
             }
         }
         i = 0;
-        while (((i < strlen(wordleData->wordChar)) && (bit(i, wordleData))) == bit(i, aux->typeExtNode.wordleData)) {
+        while (((i < strlen(textWord)) && (bit(i, textWord))) == bit(i, aux -> typeExtNode.wordleData.wordChar)) {
             i++;
         }
-        if (i > strlen(wordleData->wordChar)) {
-            auxDoc->itemDoc.nWordle++;
-            return patTree;
+        if (i > strlen(textWord)) {
+            insertIndexList(aux -> typeExtNode.wordleData.indexList, idDoc);
+            return *patTree;
         }
         else {
-             while (bit(i, wordleData->wordChar) == bit(i, (*patTree)->typeExtNode.wordleData->wordChar)) i++;
-            if (bit(i, wordleData->wordChar) > bit(i, (*patTree)->typeExtNode.wordleData->wordChar)){
-                diferentLetter = wordleData->wordChar[i - 1];
+            while (bit(i, textWord) == bit(i, (*patTree) -> typeExtNode.wordleData.wordChar)) {
+                i++;
+            }
+            if (bit(i, textWord) > bit(i, (*patTree) -> typeExtNode.wordleData.wordChar)) {
+                diffChar = (*patTree) -> typeExtNode.wordleData.wordChar[i - 1];
             }
             else{
-                diferentLetter = (*patTree)->typeExtNode.wordleData->wordChar[i - 1];
+                diffChar = (*patTree) -> typeExtNode.wordleData.wordChar[i - 1];
             }
-            
-            return insertBetween(patTree, docList, *wordleData, i, idDoc, diferentLetter);
+            return insertBetween(patTree, docList, textWord, idDoc, i, diffChar);
         }
     }
-    free(auxDoc);
 }
 
-typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, typeWordle wordleData, int i, int idDoc, char diferentLetter){
+typePatPointer insertBetween(typePatPointer* patTree, typeDocList docList, char* textWord, int idDoc, int i, char diffChar) {
     typePatPointer aux;
-    typeDocPointer auxDoc = findDoc(*docList, idDoc);
-    if(isExt(patTree) || i < (*patTree)->typeExtNode.typeInnNode.index){
-        aux = starNodeExt(patTree);
-        if(bit(i, wordleData.wordChar) >= bit(i,(*patTree)->typeExtNode.wordleData->wordChar)) return startNodeInn(patTree, &aux, i, diferentLetter);
-        else return startNodeInn(&aux, patTree, i, diferentLetter); 
+    if (isExt(*patTree) || i < (*patTree) -> typeExtNode.typeInnNode.index) {
+        aux = startNodeExt(docList, textWord, idDoc);
+        if (bit(i, textWord) >= bit(i, (*patTree) -> typeExtNode.wordleData.wordChar)) {
+            return startNodeInn(patTree, &aux, i, diffChar);
+        }
+        else {
+            return startNodeInn(&aux, patTree, i, diffChar); 
+        }
     }
-    else{
-        if(bit((*patTree)->typeExtNode.typeInnNode.index, wordleData.wordChar) >= (*patTree)->typeExtNode.typeInnNode.charIndex){
-          (*patTree)->typeExtNode.typeInnNode.right = insertBetween(&(*patTree)->typeExtNode.typeInnNode.right, docList, wordleData, i, idDoc, diferentLetter);
+    else {
+        if (bit((*patTree) -> typeExtNode.typeInnNode.index, textWord) >= (*patTree) -> typeExtNode.typeInnNode.charIndex) {
+          (*patTree) -> typeExtNode.typeInnNode.right = insertBetween(&(*patTree) -> typeExtNode.typeInnNode.right, docList, textWord, idDoc, i, diffChar);
         }
         else{
-            (*patTree)->typeExtNode.typeInnNode.left = insertBetween(&(*patTree)->typeExtNode.typeInnNode.left, docList, wordleData, i, idDoc, diferentLetter);
+            (*patTree) -> typeExtNode.typeInnNode.left = insertBetween(&(*patTree) -> typeExtNode.typeInnNode.left, docList, textWord, idDoc, i, diffChar);
         }
-        return patTree;
+        return *patTree;
     }
  }
-    
-}
 
-typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc, int index) {
-    
-}
-
-// int searchPatTree(typePatPointer patTree, char* searchTerm){
-//     if (patTree != NULL){
-//         if (patTree -> typeInnExt == ext){
-//             if (strcmp(searchTerm, patTree -> typeExtNode.wordleData -> wordChar) == 0) {
-//                 return 1;
-//             }
-//             else {
-//                 return 0;
-//             }
-//         }
-//         else {
-//             searchPat(patTree -> typeExtNode.typeInnNode.left, searchTerm);
-//             searchPat(patTree -> typeExtNode.typeInnNode.right, searchTerm);
-//         }
-//     }
-// }
-
-void printPatTree(typePatPointer patTree){
+void printPatTree(typePatPointer patTree) {
     if (patTree != NULL) {
-        if (patTree -> typeInnExt == inn) {
-            printPatTree(patTree -> typeExtNode.typeInnNode.left);
-        }
         if (patTree -> typeInnExt == ext) {
-            printWordle(*patTree -> typeExtNode.wordleData);
+            printWordle(patTree -> typeExtNode.wordleData);
         }
-        if (patTree -> typeInnExt == inn) {
+        else {
+            printPatTree(patTree -> typeExtNode.typeInnNode.left);
             printPatTree(patTree -> typeExtNode.typeInnNode.right);
         }
     }

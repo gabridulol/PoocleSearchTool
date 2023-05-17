@@ -5,11 +5,11 @@
 
 #include "../headers/wordle.h"
 
-typeWordle* startWordle() {
+typeWordle startWordle() {
     typeWordle* wordle = (typeWordle*) malloc(sizeof(typeWordle));
     wordle -> indexList = (typeIndexList*) malloc(sizeof(typeIndexList));
     startIndexList(wordle -> indexList);
-    return wordle;
+    return *wordle;
 }
 
 void fillWordle(typeWordle* wordle, char* textWord, int idDoc) {
