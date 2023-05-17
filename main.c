@@ -11,9 +11,7 @@ int main() {
     startDocList(&docList);
     startPatTree(&patTree);
     insertDocList(&docList, "arquivo1.txt", 1);
-    patTree = insertPatTree(&patTree, docList, "neymar", 1);
-    patTree = insertPatTree(&patTree, docList, "neymar", 1);
-    printDocList(docList);
+    
     printPatTree(patTree);
     return 0;
 }
