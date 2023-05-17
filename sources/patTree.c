@@ -9,8 +9,8 @@ void startPatTree(typePatPointer* patTree) {
     *patTree = NULL;
 }
 
-char bit(int diffIndex, char* textWord) {
-    return textWord[diffIndex];
+char bit(int index, char* textWord) {
+    return textWord[index];
 }
 
 int isExt(typePatPointer patTree) {

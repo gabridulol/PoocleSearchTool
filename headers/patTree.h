@@ -29,7 +29,7 @@ void startPatTree(typePatPointer* patTree);
 //Funções para verificar se o nó da PATRICIA é externo
 int isExt(typePatPointer patTree);
 // Função para retornar o caractere que difere
-char bit(int diffIndex, char* textWord);
+char bit(int index, char* textWord);
 //Função para criar nó interno da ávore PATRICIA
 typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int index, char charIndex);
 // Função para criar nó externo da árvore PATRICIA
