@@ -6,13 +6,7 @@
 #include "./headers/poocleMenu.h"
 
 int main() {
-    typePatPointer patTree;
     typeDocList docList;
-    startDocList(&docList);
-    insertDocList(&docList, "arquivo1.txt", 1);
-    printDocList(docList);
-    startPatTree(&patTree);
-    insertPatTree(&patTree, &docList, "palavra", 1);
-    printWordle(patTree -> typeExtNode.wordleData);
+    typePatPointer patTree;
     return 0;
 }
