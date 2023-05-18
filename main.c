@@ -8,9 +8,5 @@
 int main() {
     typeDocList docList;
     typePatPointer patTree;
-    startDocList(&docList);
-    startPatTree(&patTree);
-    insertDocList(&docList, "arquivo1.txt", 1);
-    printPatTree(patTree);
     return 0;
 }

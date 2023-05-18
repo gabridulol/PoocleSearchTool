@@ -12,7 +12,7 @@ typedef enum {
 } typeNode;
 typedef struct typePatNode* typePatPointer;
 typedef struct typePatNode {
-    typeNode typeInnExt;
+    typeNode innext;
     union {
         struct {
             int index;
