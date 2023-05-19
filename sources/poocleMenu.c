@@ -5,6 +5,7 @@
 
 #include "../headers/poocleMenu.h"
 
-void poocleMenu(typeDocList docList, typePatPointer PATRICIAtree) {
+void poocleMenu(typeDocList docList, typePatPointer patTree) {
     getFile(&docList);
+    printDocList(docList);
 }

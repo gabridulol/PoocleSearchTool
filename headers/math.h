@@ -3,11 +3,9 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-// Implementação dos cálculos realzidos no programa e suas funções
+// Implemetação do cálculo de relevância e suas funções
 
 #include "../headers/patTree.h"
-#include "../headers/doclist.h"
-#include <math.h>
 
 // Função para calcular a relevância de todos os documentos
 void relevanceofDocs(typeDocList *lista, typePatPointer *root, typeWordle *searchWords, int numberOfwords);

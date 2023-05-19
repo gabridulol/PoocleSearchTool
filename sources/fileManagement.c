@@ -10,14 +10,13 @@ void readingFolderFiles(typeDocList* docList, char* fileName) {
     char fileNewName[SIZEOFCHAR]; 
     strcpy(fileNewName, fileName);
     strcat(fileDirectory, fileNewName);
-    cleanFiles();
     readSrcFile(docList, fileDirectory);
 }
 
 int readSrcFile(typeDocList* docList, char* fileDirectory) {
     int filesInfile;
     char docName[SIZEOFCHAR];
-    int isIdDocs = 1;
+    int idDoc = 1;
     FILE *srcFile = NULL;
     srcFile = fopen(fileDirectory, "r");
     if (srcFile == NULL) {
@@ -27,35 +26,35 @@ int readSrcFile(typeDocList* docList, char* fileDirectory) {
     fscanf(srcFile, "%d", &filesInfile);
     for (int i = 0; i < filesInfile; i++) {
         fscanf(srcFile, "%s", docName);
-        insertDocList(docList, docName, isIdDocs);
-        isIdDocs++;
+        insertDocList(docList, docName, idDoc);
+        idDoc++;
     }
     fclose(srcFile);
 }
 
-void readingDocFiles(typeDocList* docList, char* docName, int isIdDoc) {
-    char docDirectory[] = "files/";
-    char docNewName[SIZEOFCHAR]; 
-    strcpy(docNewName, docName);
-    strcat(docDirectory, docNewName);
-    readDocText(docList, docDirectory, isIdDoc);
-}
+// void readingDocFiles(typeDocList* docList, char* docName, int isIdDoc) {
+//     char docDirectory[] = "files/";
+//     char docNewName[SIZEOFCHAR]; 
+//     strcpy(docNewName, docName);
+//     strcat(docDirectory, docNewName);
+//     readDocText(docList, docDirectory, isIdDoc);
+// }
 
-int readDocText(typeDocList* docList, char* docDirectory, int isIdDoc) {
-    char textWord[SIZEOFCHAR];
-    char isQtde = 1;
-    FILE *docFile = NULL;
-    docFile = fopen(docDirectory, "r");
-    if (docFile == NULL) {
-        return -1;
-    }
-    while (fscanf(docFile, "%s", textWord) != EOF) {
-        // Insere na PATRÍCIA
-        printf("%s <%d, %d>\n\n", textWord, isQtde, isIdDoc);
-    }
-    fclose(docFile);
-}
+// int readDocText(typeDocList* docList, char* docDirectory, int isIdDoc) {
+//     char textWord[SIZEOFCHAR];
+//     char isQtde = 1;
+//     FILE *docFile = NULL;
+//     docFile = fopen(docDirectory, "r");
+//     if (docFile == NULL) {
+//         return -1;
+//     }
+//     while (fscanf(docFile, "%s", textWord) != EOF) {
+//         // Insere na PATRÍCIA
+//         printf("%s <%d, %d>\n\n", textWord, isQtde, isIdDoc);
+//     }
+//     fclose(docFile);
+// }
 
-void cleanFiles() {
-    system("python3 files/fileManagement.py");
-}
+// void cleanFiles() {
+//     system("python3 files/fileManagement.py");
+// }

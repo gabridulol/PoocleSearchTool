@@ -8,5 +8,6 @@
 int main() {
     typeDocList docList;
     typePatPointer patTree;
+    poocleMenu(docList, patTree);
     return 0;
 }

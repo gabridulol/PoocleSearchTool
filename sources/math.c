@@ -3,7 +3,9 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-#include "../headers/calculations.h"
+#include "../headers/math.h"
+
+void printDocByRev();
 
 // Função para calcular a relevância de todos os documentos
 void relevanceofDocs(typeDocList *lista, typePatPointer *root, typeWordle *searchWords, int numberOfwords){
@@ -32,3 +34,7 @@ double relevanceOfDoc(typeDoc doc, int nDocs, typePatPointer *root, typeWordle *
 
 // Função do cálculo do peso da palavra j para o documento i
 double weightOfWord(int lista.Docs, typePatPointer *root, typeWordle *j, int idDoc); // N receberá nDocs da estrutura typeDocList list
+
+void printDocByRev(typeDocList docList) {
+
+}

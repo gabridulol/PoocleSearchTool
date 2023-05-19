@@ -1,7 +1,7 @@
 docList ok
 index ok
 wordle ok
-patTree
+patTree ok
 fileManagement
 searchEngineTasks
 poocleMenu

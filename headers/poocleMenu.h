@@ -7,4 +7,4 @@
 
 #include "../headers/searchEngineTasks.h"
 
-void poocleMenu(typeDocList docList, typePatPointer PATRICIAtree);
+void poocleMenu(typeDocList docList, typePatPointer patTree);

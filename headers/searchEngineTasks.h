@@ -21,6 +21,7 @@
 // Implementação do Buscador Poocle  e suas funções
 
 #include "../headers/fileManagement.h"
+#include "../math.h"
 
 // Função que recebe o arquivo de entrada
 void getFile(typeDocList* docList);
