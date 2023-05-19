@@ -5,36 +5,24 @@
 
 #include "../headers/math.h"
 
-void printDocByRev();
+void relevanceofDocs(typeDocList *lista, typePatPointer *root, typeWordle *searchWords, int numberOfwords) {
 
-// Função para calcular a relevância de todos os documentos
-void relevanceofDocs(typeDocList *lista, typePatPointer *root, typeWordle *searchWords, int numberOfwords){
-    int counter = 0;
-    typeDocPointer aux;
-    aux = lista->firstCell;
-    while(counter > lista->nDocs){
-        if(aux == NULL){
-            return 0;
-        }
-    aux->itemDoc.rDoc = relevanceOfDoc(aux->itemDoc, lista->nDocs, &root, &searchWords, numberOfwords);
-    aux = aux->nextCell;
-    counter++;
-    }
 }
 
-// Função do cálculo de relevância do documento i com n palavras
-double relevanceOfDoc(typeDoc doc, int nDocs, typePatPointer *root, typeWordle *searchWords, int numberOfwords){
-    double sumWeight = 0;
-    int counter = 0;
-    while(counter < numberOfwords){
-        sumWeight += weightOfWord(int lista.Docs, typePatPointer *root, typeWordle *j, int idDoc);
-    }
-    return (1/doc.nWordle) * sumWeight;
+float relevanceOfDoc(typeDoc doc, int nDocs, typePatPointer *root, typeWordle *searchWords, int numberOfwords){
+
 }
 
-// Função do cálculo do peso da palavra j para o documento i
-double weightOfWord(int lista.Docs, typePatPointer *root, typeWordle *j, int idDoc); // N receberá nDocs da estrutura typeDocList list
+float weightOfWord(int lista.Docs, typePatPointer *root, typeWordle *j, int idDoc) {
+    
+}
 
-void printDocByRev(typeDocList docList) {
-
+void printDocByRev(typePatPointer* patTree, typeDocList* docList, float* rDoc) {
+    typeDocPointer auxDoc;
+    int docCount = 0;
+    while (docCount < docList -> nDocs) {
+        auxDoc = findDocByRev(*docList, rDoc[docCount]);
+        printf("Texto %d (%s)\n", auxDoc -> itemDoc.idDoc, auxDoc -> itemDoc.docName);
+        docCount++;
+    }
 }

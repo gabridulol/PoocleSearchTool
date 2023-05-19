@@ -7,7 +7,6 @@
 
 #include "../headers/patTree.h"
 
-
 int readSrcFile(typeDocList* docList, char* srcFileName);
 void writeSrcFile(typeDocList* docList, FILE* srcFile);
 void readDocFile(typePatPointer* patTree, typeDocList *docList);

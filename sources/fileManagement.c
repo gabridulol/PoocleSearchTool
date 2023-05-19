@@ -25,7 +25,7 @@ void writeSrcFile(typeDocList* docList, FILE* srcFile) {
     char docName[size];
     int idDoc = 1;
     fscanf(srcFile, "%d", &nDocs);
-    for (int i = 0; i < nDocs; i++) {
+    while (idDoc <= nDocs) {
         fscanf(srcFile, "%s", docName);
         insertDocList(docList, docName, idDoc);
         idDoc++;
