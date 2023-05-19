@@ -26,8 +26,8 @@
 // Função que recebe o arquivo de entrada
 void getFile(typeDocList* docList);
 // Função que constrói o índice invertido
-void buildInvertedIndex();
+void buildInvertedIndex(typePatPointer* patTree, typeDocList* docList);
 // Função que imprime o índice invertido
-void printInvertedIndex();
+void printInvertedIndex(typePatPointer* patTree);
 // Função que realiza busca com base em termos de busca
 void searchTool();

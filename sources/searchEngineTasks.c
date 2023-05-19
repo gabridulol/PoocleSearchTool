@@ -5,6 +5,14 @@
 
 #include "../headers/searchEngineTasks.h"
 
-char* getFile(typeDocList* docList) {
-    readingFolderFiles(docList, "entrada.txt");
+void getFile(typeDocList* docList) {
+    readSrcFile(docList, "entrada.txt");
+}
+
+void buildInvertedIndex(typePatPointer* patTree, typeDocList* docList) {
+    readDocFile(patTree, docList);
+}
+
+void printInvertedIndex(typePatPointer* patTree) {
+    printPatTree(*patTree);
 }

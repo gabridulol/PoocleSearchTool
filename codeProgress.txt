@@ -2,7 +2,8 @@ docList ok
 index ok
 wordle ok
 patTree ok
-fileManagement
+fileManagement ok
+math
 searchEngineTasks
 poocleMenu
 GTKInterface

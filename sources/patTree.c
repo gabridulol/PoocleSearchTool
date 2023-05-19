@@ -40,8 +40,8 @@ typePatPointer startNodeExt(typeDocList docList, char* textWord, int idDoc) {
 
 typePatPointer insertPatTree(typePatPointer* patTree, typeDocList docList, char* textWord, int idDoc) {
     typePatPointer auxTree;
-    char iChar;
     int i;
+    char iChar;
     char diffChar;
     if (*patTree == NULL) {
         return startNodeExt(docList, textWord, idDoc);
@@ -63,15 +63,15 @@ typePatPointer insertPatTree(typePatPointer* patTree, typeDocList docList, char*
             }
         }
         i = 0;
-        while ((i < strlen(textWord)) && (bit(i, textWord) == bit(i, auxTree->typeExtNode.wordleData.wordChar))) {
+        while ((i < strlen(textWord)) && (bit(i, textWord) == bit(i, auxTree -> typeExtNode.wordleData.wordChar))) {
             i++;
-            }
-        if(i >= strlen(textWord)){
-                insertIndexList(auxTree -> typeExtNode.wordleData.indexList, idDoc);
-                return (*patTree);
-            } 
+        }
+        if(i >= strlen(textWord)) {
+            insertIndexList(auxTree -> typeExtNode.wordleData.indexList, idDoc);
+            return (*patTree);
+        } 
         else {
-        i = 0;    
+            i = 0;    
             while (bit(i, textWord) == bit(i, auxTree -> typeExtNode.wordleData.wordChar)) {
                 i++;
             }
