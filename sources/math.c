@@ -3,7 +3,7 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-#include "../headers/docMath.h"
+#include "../headers/math.h"
 
 
 void mathRelevance(typePatPointer* patTree, typeDocList* docList, char* searchWordle) {
@@ -37,38 +37,28 @@ double mathWordleWeight(typePatPointer auxTree, typeIndexPointer auxIndex, int i
 }
 
 void printDocByRev(typePatPointer* patTree, typeDocList* docList) {
-    typeDocPointer auxDoc;
-    auxDoc = docList->firstCell->nextCell;
-    int docCount = 0;
+    typeDocPointer auxDoc = docList -> firstCell -> nextCell;
     double array[docList -> nDocs];
+    int count = 0;
+    typeDocPointer auxPrint;
     while (auxDoc != NULL) {
-        array[docCount] = auxDoc->itemDoc.rDoc;
-        docCount++;
-        auxDoc = auxDoc -> nextCell; 
+        array[count] = auxDoc -> itemDoc.rDoc;
+        count++;
+        auxDoc = auxDoc -> nextCell;
     }
-    sort(array, docList);
-    for(int i = 0; i<docList->nDocs; i++) {
-        typeDocPointer docaux = findDocByRev(*docList, array[i]);
-        printf("Texto: %d(%s)\n",docaux->itemDoc.idDoc, docaux->itemDoc.docName);
-    }  
+    qsort(array, docList -> nDocs, sizeof(double), cmp);
+    count = 0;
+    while (count < docList -> nDocs) {
+        auxPrint = findDocByRev(*docList, array[count]);
+        printf("Texto %d (%s)\n", auxPrint -> itemDoc.idDoc, auxPrint -> itemDoc.docName);
+        count++;
     }
-
-void sort(double *array, typeDocList *doclist){
-int i, j, min, aux;
-  
-  for (i = 0; i < ( - 1); i++) {
-   
-    min = i;
-    for (j = i+1; j < doclist->nDocs; j++) {
-
-      if (array[j] < array[min]) {
-   min = j;
-      }
-    }
-    if (i != min) {
-      aux = array[i];
-      array[i] = array[min];
-      array[min] = aux;
-    }
-  }
 }
+int cmp(const void *a, const void *b) {
+    double value1 = *(double *)a;
+    double value2 = *(double *)b;
+    if (value1 > value2) return -1;
+    else if (value1 < value2) return 1;
+    else return 0;
+}
+

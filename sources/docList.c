@@ -52,7 +52,7 @@ typeDocPointer findDocByRev(typeDocList docList, double rDoc) {
 void printDocList(typeDocList docList) {
     typeDocPointer auxPrint = docList.firstCell -> nextCell;
     while (auxPrint != NULL) {
-        printf("Texto %d (%s) - Rev: %lf\n", auxPrint -> itemDoc.idDoc, auxPrint -> itemDoc.docName, auxPrint -> itemDoc.rDoc);
+        printf("Texto %d (%s)\n", auxPrint -> itemDoc.idDoc, auxPrint -> itemDoc.docName, auxPrint -> itemDoc.rDoc);
         auxPrint = auxPrint -> nextCell;
     }
 }

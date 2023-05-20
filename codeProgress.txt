@@ -3,7 +3,7 @@ index ok
 wordle ok
 patTree ok
 fileManagement ok
-math
-searchEngineTasks
+math ok
+searchEngineTasks ok
 poocleMenu
 GTKInterface

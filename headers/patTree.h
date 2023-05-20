@@ -3,39 +3,42 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-// Implementação de PATRICIA e suas funções
+// Implementação da árvore PATRICIA e suas funções
 
 #include "../headers/wordle.h"
 
+// Estrutura nó de tipo interno ou externo
 typedef enum {
-    inn, ext
+    inn, ext // Interno (0) e Externo (1)
 } typeNode;
+// Estrutura do nó da árvore PATRICÍA
 typedef struct typePatNode* typePatPointer;
 typedef struct typePatNode {
-    typeNode innext;
+    typeNode innext; // Interno (0) ou Externo (1)
     union {
         struct {
-            int index;
-            char charIndex;
+            int index; // Índice que difere
+            char charIndex; // Caractere que difere
             typePatPointer left;
             typePatPointer right;
         } typeInnNode;
-        typeWordle wordleData;
+        typeWordle wordleData; // Wordle (palavra + índice)
     } typeExtNode;
 } typePatNode;
 
 // Função para iniciar a árvore PATRICIA
 void startPatTree(typePatPointer* patTree);
-//Funções para verificar se o nó da PATRICIA é externo
+//Funções para verificar se o nó da PATRICIA
 int isExt(typePatPointer patTree);
 // Função para retornar o caractere que difere
 char bit(int index, char* textWord);
-//Função para criar nó interno da ávore PATRICIA
+//Função para iniciar nó interno da ávore PATRICIA
 typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int index, char charIndex);
-// Função para criar nó externo da árvore PATRICIA
+// Função para inciar nó externo da árvore PATRICIA
 typePatPointer startNodeExt(typeDocList docList, char* textWord, int idDoc);
 // Função de busca de um nó na árvore PATRÍCIA
 typePatPointer findNode(typePatPointer patTree, char* searchWordle);
+// Função para verificar se uma palavra esta na árvore PATRICIA
 int searchPatTree(typePatPointer patTree, char* searchWordle);
 // Função para inserir na árvore PATRICIA
 typePatPointer insertPatTree(typePatPointer* patTree, typeDocList docList, char* textWord, int idDoc);

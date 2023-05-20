@@ -3,7 +3,7 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-// Implementação da lista de documentos a serem indexados e suas funções
+// Implementação da lista de documentos e suas funções
 
 #include "../headers/include.h"
 
@@ -30,15 +30,15 @@ typedef struct docList {
     typeDocPointer lastCell;
 } typeDocList;
 
-// Função para iniciar a lista encadeada
+// Função para iniciar a lista encadeada de documentps
 void startDocList(typeDocList* docList);
-// Função para inserir na lista encadeada
+// Função para inserir na lista encadeada de documentos
 void insertDocList(typeDocList* docList, char* docName, int idDoc);
-// Função para alocar memória e dados de inserção
+// Função para alocar memória e dados de inserção do documento
 void fillDoc(typeDocList* docList, char* docName, int idDoc);
-// Função para procurar na lista encadeada por idDoc
+// Função para procurar na lista encadeada de documentos por idDoc
 typeDocPointer findDoc(typeDocList docList, int idDoc);
-// Função para procurar na lista encadeda por relevância
+// Função para procurar na lista encadeda de documentos por relevância
 typeDocPointer findDocByRev(typeDocList docList, double rDoc);
-// Função para imprimir a lista encadeada
+// Função para imprimir a lista encadeada de documentos
 void printDocList(typeDocList docList);

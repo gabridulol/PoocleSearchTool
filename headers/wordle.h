@@ -3,7 +3,7 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-// Implementação do TERMO DE BUSCA do texto (PALAVRA + PESO + TF-IDF) e suas funções
+// Implementação da wordle (palavra + índice invertido) e suas funções
 
 #include "../headers/index.h"
 
@@ -13,9 +13,9 @@ typedef struct wordle {
     typeIndexList* indexList;
 } typeWordle;
 
-// Função para iniciar um TERMO DE BUSCA
+// Função para iniciar uma wordle
 typeWordle startWordle();
-// Função para definir um TERMO DE BUSCA
+// Função para definir uma wordle
 void fillWordle(typeWordle* wordle, char* textWord, int idDoc);
-// Função para imprimir um TERMO DE BUSCA
+// Função para imprimir uma wordle
 void printWordle(typeWordle wordle);

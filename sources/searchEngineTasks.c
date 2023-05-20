@@ -7,6 +7,8 @@
 
 void getFile(typeDocList* docList) {
     readSrcFile(docList, "entrada.txt");
+    printf("Documents list:\n");
+    printDocList(*docList);
 }
 
 void buildInvertedIndex(typePatPointer* patTree, typeDocList* docList) {
@@ -14,10 +16,12 @@ void buildInvertedIndex(typePatPointer* patTree, typeDocList* docList) {
 }
 
 void printInvertedIndex(typePatPointer* patTree) {
+    printf("Inverted index:\n");
     printPatTree(*patTree);
 }
 
 void searchTool(typePatPointer* patTree, typeDocList* docList) {
+    printf("Poocle Search Tool:\n");
     char searchWordle[size];
     while (1) {
         fgets(searchWordle, sizeof(searchWordle), stdin);

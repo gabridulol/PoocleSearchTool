@@ -30,7 +30,6 @@ void writeSrcFile(typeDocList* docList, FILE* srcFile) {
         insertDocList(docList, docName, idDoc);
         idDoc++;
     }
-    printDocList(*docList);
 }
 
 void readDocFile(typePatPointer* patTree, typeDocList* docList) {

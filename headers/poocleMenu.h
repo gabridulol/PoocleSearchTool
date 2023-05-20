@@ -3,6 +3,6 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-// Implementação do menu do Buscado Poocle e suas funções
+// Implementação do menu do Buscador Poocle
 
 #include "../headers/searchEngineTasks.h"
