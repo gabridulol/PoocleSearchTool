@@ -5,17 +5,14 @@
 
 // Implementação da lista de documentos a serem indexados e suas funções
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
+#include "../headers/include.h"
 
 // Estrutura do documento
 typedef struct doc {
     // Informações básicas do documento
     char* docName; // Nome do documento
     int idDoc; // idDoc do documento
-    float rDoc; // Relevância do documento na lista de documentos
+    double rDoc; // Relevância do documento na lista de documentos
     int nWordle; // Quantidade de termos distintos no documento
 } typeDoc;
 
@@ -42,15 +39,6 @@ void fillDoc(typeDocList* docList, char* docName, int idDoc);
 // Função para procurar na lista encadeada por idDoc
 typeDocPointer findDoc(typeDocList docList, int idDoc);
 // Função para procurar na lista encadeda por relevância
-typeDocPointer findDocByRev(typeDocList docList, float rDoc);
+typeDocPointer findDocByRev(typeDocList docList, double rDoc);
 // Função para imprimir a lista encadeada
 void printDocList(typeDocList docList);
-
-
-// // Funções para imprimir os arquivos em ordem de relevância
-// // Função para imprimir a lista de documentos por ordem de relevância
-// void rDocPrint(typeDocList docList);
-// // Função para fazer uma cópia da lista encadeada
-// void copyDocList(typeDocList* docList, typeDoc* newDocList, int size);
-// // Função para ordenar a cópia da lista encadeda pelo método Selection Sort
-// void selectionSort(typeDoc* newDocList, int size);

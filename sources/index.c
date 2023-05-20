@@ -35,6 +35,16 @@ typeIndexPointer findIdDoc(typeIndexList indexList, int idDoc) {
     return NULL;
 }
 
+int sizeIndexList(typeIndexList indexList) {
+    int sizeIndexList = 0;
+    typeIndexPointer auxSize = indexList.firstCell -> nextCell;
+    while (auxSize != NULL) {
+        sizeIndexList++;
+        auxSize = auxSize -> nextCell;
+    }
+    return sizeIndexList;
+}
+
 void printIndexList(typeIndexList indexList) {
     typeIndexPointer auxPrint = indexList.firstCell -> nextCell;
     while (auxPrint != NULL) {

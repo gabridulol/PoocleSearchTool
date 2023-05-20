@@ -30,5 +30,7 @@ void startIndexList(typeIndexList* indexList);
 void insertIndexList(typeIndexList* indexList, int idDoc);
 // Função para procurar o indíce de um arquivo específico
 typeIndexPointer findIdDoc(typeIndexList indexList, int idDoc);
+//
+int sizeIndexList(typeIndexList indexList);
 // Função para imprimir a lista encadeada de itens TF-IDF
 void printIndexList(typeIndexList indexList);

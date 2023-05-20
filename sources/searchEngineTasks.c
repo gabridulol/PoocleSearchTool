@@ -6,5 +6,25 @@
 #include "../headers/searchEngineTasks.h"
 
 void getFile(typeDocList* docList) {
-    readingFolderFiles(docList, "entrada.txt");
+    readSrcFile(docList, "entrada.txt");
+}
+
+void buildInvertedIndex(typePatPointer* patTree, typeDocList* docList) {
+    readDocFile(patTree, docList);
+}
+
+void printInvertedIndex(typePatPointer* patTree) {
+    printPatTree(*patTree);
+}
+
+void searchTool(typePatPointer* patTree, typeDocList* docList) {
+    char searchWordle[size];
+    while (1) {
+        fgets(searchWordle, sizeof(searchWordle), stdin);
+        if (strcmp(searchWordle, "\n") == 0) {
+            break;
+        }
+        searchWordle[strcspn(searchWordle, "\n")] = '\0';
+        mathRelevance(patTree, docList, searchWordle);
+    }
 }

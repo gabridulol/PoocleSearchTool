@@ -6,6 +6,7 @@
 #include "./headers/poocleMenu.h"
 
 int main() {
-printf("buceta \n" "cu");
+    typePatPointer patTree;
+    typeDocList docList;
     return 0;
 }

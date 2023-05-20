@@ -7,15 +7,8 @@
 
 #include "../headers/patTree.h"
 
-#define SIZEOFCHAR 100 // Definindo tamanho máximo para uma variável tipo char
-
-// Função geral para ler os arquivos da pasta files e indicar o diretório do arquivo "entradas.txt"
-void readingFolderFiles(typeDocList* docList, char* fileName);
-// Função para ler o arquivo "entradas.txt"
-int readSrcFile(typeDocList* docList, char* fileDirectory);
-// Função para indicar o diretório dos arquivos "arquivoN.txt"
-void readingDocFiles(typeDocList* docList, char* docName, int isIdDoc);
-// Função para ler o arquivo específico "arquivoN.txt"
-int readDocText(typeDocList* docList, char* docDirectory, int isIdDoc);
-// Função para tratar o texto antes de fazer todo o trabalho
+int readSrcFile(typeDocList* docList, char* srcFileName);
+void writeSrcFile(typeDocList* docList, FILE* srcFile);
+void readDocFile(typePatPointer* patTree, typeDocList *docList);
+int writeDocFile(typePatPointer* patTree, typeDocList* docList, typeDocPointer doc);
 void cleanFiles(); // Para mais detalhes ver fileManagement.py
