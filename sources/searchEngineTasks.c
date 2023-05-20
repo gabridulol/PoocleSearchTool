@@ -27,4 +27,5 @@ void searchTool(typePatPointer* patTree, typeDocList* docList) {
         searchWordle[strcspn(searchWordle, "\n")] = '\0';
         mathRelevance(patTree, docList, searchWordle);
     }
+    printDocByRev(patTree, docList);
 }

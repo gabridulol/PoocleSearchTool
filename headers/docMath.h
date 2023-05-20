@@ -17,4 +17,6 @@ double mathDocRelevance(typePatPointer *patTree, typeDocPointer currentDoc, char
 double mathWordleWeight(typePatPointer auxTree, typeIndexPointer auxIndex, int idDoc, int nDocs);
 
 // Funçãao para imprimir os documentos por relevância
-void printDocByRev(typePatPointer *patTree, typeDocList *docList, double *rDoc);
+void printDocByRev(typePatPointer *patTree, typeDocList *docList);
+
+void sort(double *array, typeDocList *doclist);

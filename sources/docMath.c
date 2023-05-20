@@ -36,12 +36,39 @@ double mathWordleWeight(typePatPointer auxTree, typeIndexPointer auxIndex, int i
     return (qtde * (log10(nDocs) / inDoc));
 }
 
-void printDocByRev(typePatPointer* patTree, typeDocList* docList, double* rDoc) {
+void printDocByRev(typePatPointer* patTree, typeDocList* docList) {
     typeDocPointer auxDoc;
+    auxDoc = docList->firstCell->nextCell;
     int docCount = 0;
-    while (docCount < docList -> nDocs) {
-        auxDoc = findDocByRev(*docList, rDoc[docCount]);
-        printf("Texto %d (%s)\n", auxDoc -> itemDoc.idDoc, auxDoc -> itemDoc.docName);
+    double array[docList -> nDocs];
+    while (auxDoc != NULL) {
+        array[docCount] = auxDoc->itemDoc.rDoc;
         docCount++;
+        auxDoc = auxDoc -> nextCell; 
     }
+    sort(array, docList);
+    for(int i = 0; i<docList->nDocs; i++) {
+        typeDocPointer docaux = findDocByRev(*docList, array[i]);
+        printf("Texto: %d(%s)\n",docaux->itemDoc.idDoc, docaux->itemDoc.docName);
+    }  
+    }
+
+void sort(double *array, typeDocList *doclist){
+int i, j, min, aux;
+  
+  for (i = 0; i < ( - 1); i++) {
+   
+    min = i;
+    for (j = i+1; j < doclist->nDocs; j++) {
+
+      if (array[j] < array[min]) {
+   min = j;
+      }
+    }
+    if (i != min) {
+      aux = array[i];
+      array[i] = array[min];
+      array[min] = aux;
+    }
+  }
 }

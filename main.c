@@ -12,6 +12,5 @@ int main() {
     buildInvertedIndex(&patTree, &docList);
     printInvertedIndex(&patTree);
     searchTool(&patTree, &docList);
-    printDocList(docList);
     return 0;
 }
