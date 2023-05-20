@@ -9,7 +9,7 @@
 void mathRelevance(typePatPointer* patTree, typeDocList* docList, char* searchWordle) {
     typeDocPointer auxDoc = docList -> firstCell -> nextCell;
     while (auxDoc != NULL) {
-        auxDoc -> itemDoc.rDoc = mathDocRelevance(patTree, auxDoc, searchWordle, docList -> nDocs);
+        auxDoc -> itemDoc.rDoc += mathDocRelevance(patTree, auxDoc, searchWordle, docList -> nDocs);
         auxDoc = auxDoc -> nextCell;
     }
 }
