@@ -5,16 +5,16 @@
 
 // Implemetação do cálculo de relevância e suas funções
 
-#include "../headers/patTree.h"
+#include "../headers/fileManagement.h"
 
 // Função para calcular a relevância de todos os documentos
-float mathRelevance(typeDocList* docList, typePatPointer* patTree, char* searchWordle, int nSearchWordles);
+void mathRelevance(typePatPointer* patTree, typeDocList* docList, char* searchWordle);
 
 // Função do cálculo de relevância do documento i com n palavras
-float mathDocRelevance(typeDocList* docList, typePatPointer* patTree, char* searchWordle, int nSearchWordles);
+double mathDocRelevance(typePatPointer *patTree, typeDocPointer currentDoc, char *searchWordle, int nDocs);
 
 // Função do cálculo do peso da palavra j para o documento i
-float mathWordleWeight(int lista.Docs, typePatPointer *root, typeWordle *j, int idDoc);
+double mathWordleWeight(typePatPointer auxTree, typeIndexPointer auxIndex, int idDoc, int nDocs);
 
 // Funçãao para imprimir os documentos por relevância
-void printDocByRev(typePatPointer* patTree, typeDocList* docList, float* rDoc);
+void printDocByRev(typePatPointer *patTree, typeDocList *docList, double *rDoc);

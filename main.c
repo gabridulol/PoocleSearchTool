@@ -8,8 +8,5 @@
 int main() {
     typePatPointer patTree;
     typeDocList docList;
-    getFile(&docList);
-    buildInvertedIndex(&patTree, &docList);
-    printInvertedIndex(&patTree);
     return 0;
 }

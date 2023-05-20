@@ -38,7 +38,7 @@ typeDocPointer findDoc(typeDocList docList, int idDoc) {
     return NULL;
 }
 
-typeDocPointer findDocByRev(typeDocList docList, float rDoc) {
+typeDocPointer findDocByRev(typeDocList docList, double rDoc) {
     typeDocPointer auxFind = docList.firstCell -> nextCell;
     while (auxFind != NULL) {
         if (auxFind -> itemDoc.rDoc == rDoc) {
@@ -52,7 +52,7 @@ typeDocPointer findDocByRev(typeDocList docList, float rDoc) {
 void printDocList(typeDocList docList) {
     typeDocPointer auxPrint = docList.firstCell -> nextCell;
     while (auxPrint != NULL) {
-        printf("Texto %d (%s)\n", auxPrint -> itemDoc.idDoc, auxPrint -> itemDoc.docName);
+        printf("Texto %d (%s) - Rev: %lf\n", auxPrint -> itemDoc.idDoc, auxPrint -> itemDoc.docName, auxPrint -> itemDoc.rDoc);
         auxPrint = auxPrint -> nextCell;
     }
 }

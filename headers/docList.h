@@ -12,7 +12,7 @@ typedef struct doc {
     // Informações básicas do documento
     char* docName; // Nome do documento
     int idDoc; // idDoc do documento
-    float rDoc; // Relevância do documento na lista de documentos
+    double rDoc; // Relevância do documento na lista de documentos
     int nWordle; // Quantidade de termos distintos no documento
 } typeDoc;
 
@@ -39,6 +39,6 @@ void fillDoc(typeDocList* docList, char* docName, int idDoc);
 // Função para procurar na lista encadeada por idDoc
 typeDocPointer findDoc(typeDocList docList, int idDoc);
 // Função para procurar na lista encadeda por relevância
-typeDocPointer findDocByRev(typeDocList docList, float rDoc);
+typeDocPointer findDocByRev(typeDocList docList, double rDoc);
 // Função para imprimir a lista encadeada
 void printDocList(typeDocList docList);
