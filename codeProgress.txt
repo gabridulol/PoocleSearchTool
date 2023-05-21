@@ -5,5 +5,5 @@ patTree ok
 fileManagement ok
 math ok
 searchEngineTasks ok
-poocleMenu
+poocleMenu ok
 GTKInterface
