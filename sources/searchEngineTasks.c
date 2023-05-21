@@ -18,18 +18,25 @@ void buildInvertedIndex(typePatPointer* patTree, typeDocList* docList) {
 void printInvertedIndex(typePatPointer* patTree) {
     printf("Inverted index:\n");
     printPatTree(*patTree);
+    printf("\n");
 }
 
 void searchTool(typePatPointer* patTree, typeDocList* docList) {
     printf("Poocle Search Tool:\n");
-    char searchWordle[size];
+    char searchLine[size];
+    char* searchWordle;
     while (1) {
-        fgets(searchWordle, sizeof(searchWordle), stdin);
-        if (strcmp(searchWordle, "\n") == 0) {
+        fgets(searchLine, sizeof(searchLine), stdin);
+        if (searchLine[0] == '\n') {
             break;
         }
-        searchWordle[strcspn(searchWordle, "\n")] = '\0';
-        mathRelevance(patTree, docList, searchWordle);
+        searchWordle = strtok(searchLine, " ");
+        while (searchWordle != NULL) {
+            searchWordle[strcspn(searchWordle, "\n")] = '\0';
+            mathRelevance(patTree, docList, searchWordle);
+            searchWordle = strtok(NULL, " ");
+        }
     }
-    printDocByRev(patTree, docList);
+    printDocByRev(docList);
+    docReset(docList);
 }

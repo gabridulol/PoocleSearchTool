@@ -14,6 +14,6 @@ double mathDocRelevance(typePatPointer *patTree, typeDocPointer currentDoc, char
 // Função para cálculo do peso de uma palavra de um documento específico
 double mathWordleWeight(typePatPointer auxTree, typeIndexPointer auxIndex, int idDoc, int nDocs);
 // Funçãao para imprimir os documentos por relevância
-void printDocByRev(typePatPointer *patTree, typeDocList *docList);
+void printDocByRev(typeDocList *docList);
 // Função auxiliar para função qsort
 int cmp(const void *a, const void *b);

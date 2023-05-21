@@ -36,12 +36,12 @@ char bit(int index, char* textWord);
 typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int index, char charIndex);
 // Função para inciar nó externo da árvore PATRICIA
 typePatPointer startNodeExt(typeDocList docList, char* textWord, int idDoc);
+// Função para inserir na árvore PATRICIA
+typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc);
+typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc, int i, char diffChar);
 // Função de busca de um nó na árvore PATRÍCIA
 typePatPointer findNode(typePatPointer patTree, char* searchWordle);
 // Função para verificar se uma palavra esta na árvore PATRICIA
 int searchPatTree(typePatPointer patTree, char* searchWordle);
-// Função para inserir na árvore PATRICIA
-typePatPointer insertPatTree(typePatPointer* patTree, typeDocList docList, char* textWord, int idDoc);
-typePatPointer insertBetween(typePatPointer* patTree, typeDocList docList, char* textWord, int idDoc, int i, char diffChar);
 // Função de impressão da árvore PATRICIA em ordem alfabética
 void printPatTree(typePatPointer patTree);

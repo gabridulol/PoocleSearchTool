@@ -35,26 +35,26 @@ void writeSrcFile(typeDocList* docList, FILE* srcFile) {
 void readDocFile(typePatPointer* patTree, typeDocList* docList) {
     startPatTree(patTree);
     cleanFiles();
-    typeDocPointer doc = docList -> firstCell -> nextCell;
-    while (doc != NULL) {
-        writeDocFile(patTree, docList, doc);
-        doc = doc -> nextCell;
+    typeDocPointer auxDoc = docList -> firstCell -> nextCell;
+    while (auxDoc != NULL) {
+        writeDocFile(patTree, docList, auxDoc);
+        auxDoc = auxDoc -> nextCell;
     }
 }
 
-int writeDocFile(typePatPointer* patTree, typeDocList* docList, typeDocPointer doc) {
+int writeDocFile(typePatPointer* patTree, typeDocList* docList, typeDocPointer auxDoc) {
     char textWord[size];
     char docDirectory[size] = "files/"; 
-    strcat(docDirectory, doc -> itemDoc.docName);
-    int idDoc = doc -> itemDoc.idDoc;
+    strcat(docDirectory, auxDoc -> itemDoc.docName);
+    int idDoc = auxDoc -> itemDoc.idDoc;
     FILE* docFile = NULL;
     docFile = fopen(docDirectory, "r");
     if (docFile == NULL) {
-        printf("Could not open the file ''%s''. Try again...\n", doc -> itemDoc.docName);
+        printf("Could not open the file ''%s''. Try again...\n", auxDoc -> itemDoc.docName);
         return -1;
     }
     while (fscanf(docFile, "%s", textWord) != EOF) {
-        *patTree = insertPatTree(patTree, *docList, textWord, idDoc);
+        *patTree = insertPatTree(patTree, docList, textWord, idDoc);
     }
     fclose(docFile);
 }

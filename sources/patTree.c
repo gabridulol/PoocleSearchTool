@@ -29,7 +29,7 @@ typePatPointer startNodeInn(typePatPointer* left, typePatPointer* right, int ind
 }
 
 typePatPointer startNodeExt(typeDocList docList, char* textWord, int idDoc) {
-    typeDocPointer doc = findDoc(docList, idDoc); doc -> itemDoc.nWordle++;
+    typeDocPointer auxDoc = findDoc(docList, idDoc); auxDoc -> itemDoc.nWordle++;
     typePatPointer aux;
     aux = (typePatNode*) malloc(sizeof(typePatNode));
     aux -> innext = ext;
@@ -38,13 +38,15 @@ typePatPointer startNodeExt(typeDocList docList, char* textWord, int idDoc) {
     return aux;
 }
 
-typePatPointer insertPatTree(typePatPointer* patTree, typeDocList docList, char* textWord, int idDoc) {
+typePatPointer insertPatTree(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc) {
+    typeIndexPointer auxIndex;
+    typeDocPointer auxDoc;
     typePatPointer auxTree;
     int i;
     char iChar;
     char diffChar;
     if (*patTree == NULL) {
-        return startNodeExt(docList, textWord, idDoc);
+        return startNodeExt(*docList, textWord, idDoc);
     }
     else {
         auxTree = *patTree;
@@ -67,9 +69,14 @@ typePatPointer insertPatTree(typePatPointer* patTree, typeDocList docList, char*
             i++;
         }
         if(i > strlen(textWord)) {
+            auxIndex = findIdDoc(*auxTree -> typeExtNode.wordleData.indexList, idDoc);
+            if (auxIndex == NULL) {
+                auxDoc = findDoc(*docList, idDoc);
+                auxDoc -> itemDoc.nWordle++;
+            }
             insertIndexList(auxTree -> typeExtNode.wordleData.indexList, idDoc);
             return (*patTree);
-        } 
+        }
         else {
             i = 0;    
             while (bit(i, textWord) == bit(i, auxTree -> typeExtNode.wordleData.wordChar)) {
@@ -86,10 +93,10 @@ typePatPointer insertPatTree(typePatPointer* patTree, typeDocList docList, char*
     }
 }
 
-typePatPointer insertBetween(typePatPointer* patTree, typeDocList docList, char* textWord, int idDoc, int i, char diffChar) {
+typePatPointer insertBetween(typePatPointer* patTree, typeDocList* docList, char* textWord, int idDoc, int i, char diffChar) {
     typePatPointer auxTree;
     if (isExt(*patTree) || (i < (*patTree) -> typeExtNode.typeInnNode.index)) {
-        auxTree = startNodeExt(docList, textWord, idDoc);
+        auxTree = startNodeExt(*docList, textWord, idDoc);
         if (bit(i, textWord) >= diffChar) {
             return startNodeInn(patTree, &auxTree, i, bit(i, textWord));
         }

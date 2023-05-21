@@ -27,6 +27,14 @@ void fillDoc(typeDocList* docList, char* docName, int idDoc) {
     docList -> lastCell -> itemDoc.nWordle = 0;
 }
 
+void docReset(typeDocList* docList) {
+    typeDocPointer auxReset = docList -> firstCell -> nextCell;
+    while (auxReset != NULL) {
+        auxReset -> itemDoc.rDoc = 0;
+        auxReset = auxReset -> nextCell;
+    }
+}
+
 typeDocPointer findDoc(typeDocList docList, int idDoc) {
     typeDocPointer auxFind = docList.firstCell -> nextCell;
     while (auxFind != NULL) {
@@ -52,7 +60,10 @@ typeDocPointer findDocByRev(typeDocList docList, double rDoc) {
 void printDocList(typeDocList docList) {
     typeDocPointer auxPrint = docList.firstCell -> nextCell;
     while (auxPrint != NULL) {
-        printf("Texto %d (%s)\n", auxPrint -> itemDoc.idDoc, auxPrint -> itemDoc.docName);
+        printf("docName: %s\n", auxPrint -> itemDoc.docName);
+        printf("idDoc: %d\n", auxPrint -> itemDoc.idDoc);
+        printf("rDoc: %lf\n", auxPrint -> itemDoc.rDoc);
+        printf("nWordle: %d\n\n", auxPrint -> itemDoc.nWordle);
         auxPrint = auxPrint -> nextCell;
     }
 }

@@ -36,9 +36,11 @@ void startDocList(typeDocList* docList);
 void insertDocList(typeDocList* docList, char* docName, int idDoc);
 // Função para alocar memória e dados de inserção do documento
 void fillDoc(typeDocList* docList, char* docName, int idDoc);
+// Função para zerar a relevância dos documentos para nova pesquisa
+void docReset(typeDocList* docList);
 // Função para procurar na lista encadeada de documentos por idDoc
 typeDocPointer findDoc(typeDocList docList, int idDoc);
-// Função para procurar na lista encadeda de documentos por relevância
+// Função para procurar na lista encadeada de documentos por relevância
 typeDocPointer findDocByRev(typeDocList docList, double rDoc);
 // Função para imprimir a lista encadeada de documentos
 void printDocList(typeDocList docList);

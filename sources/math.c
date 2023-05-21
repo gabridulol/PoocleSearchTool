@@ -36,7 +36,7 @@ double mathWordleWeight(typePatPointer auxTree, typeIndexPointer auxIndex, int i
     return (qtde * (log10(nDocs) / inDoc));
 }
 
-void printDocByRev(typePatPointer* patTree, typeDocList* docList) {
+void printDocByRev(typeDocList* docList) {
     typeDocPointer auxDoc = docList -> firstCell -> nextCell;
     double array[docList -> nDocs];
     int count = 0;
@@ -49,8 +49,10 @@ void printDocByRev(typePatPointer* patTree, typeDocList* docList) {
     qsort(array, docList -> nDocs, sizeof(double), cmp);
     count = 0;
     while (count < docList -> nDocs) {
-        auxPrint = findDocByRev(*docList, array[count]);
-        printf("Texto %d (%s)\n", auxPrint -> itemDoc.idDoc, auxPrint -> itemDoc.docName);
+        if (array[count] != 0) {
+            auxPrint = findDocByRev(*docList, array[count]);
+            printf("Text %d (%s)\n", auxPrint -> itemDoc.idDoc, auxPrint -> itemDoc.docName);
+        }
         count++;
     }
 }
