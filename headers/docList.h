@@ -30,6 +30,8 @@ typedef struct docList {
     typeDocPointer lastCell;
 } typeDocList;
 
+// Função para verficar se a lista encadeda de documentos é vazia
+int isDocListEmpty(typeDocList docList);
 // Função para iniciar a lista encadeada de documentps
 void startDocList(typeDocList* docList);
 // Função para inserir na lista encadeada de documentos

@@ -55,6 +55,7 @@ void printDocByRev(typeDocList* docList) {
         }
         count++;
     }
+    docReset(docList);
 }
 int cmp(const void *a, const void *b) {
     double value1 = *(double *)a;

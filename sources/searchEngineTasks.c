@@ -7,7 +7,7 @@
 
 void getFile(typeDocList* docList) {
     readSrcFile(docList, "entrada.txt");
-    printf("Documents list:\n");
+    printf("\nDocuments list:\n\n");
     printDocList(*docList);
 }
 
@@ -16,27 +16,16 @@ void buildInvertedIndex(typePatPointer* patTree, typeDocList* docList) {
 }
 
 void printInvertedIndex(typePatPointer* patTree) {
-    printf("Inverted index:\n");
+    printf("\nInverted index:\n\n");
     printPatTree(*patTree);
     printf("\n");
 }
 
-void searchTool(typePatPointer* patTree, typeDocList* docList) {
-    printf("Poocle Search Tool:\n");
-    char searchLine[size];
-    char* searchWordle;
-    while (1) {
-        fgets(searchLine, sizeof(searchLine), stdin);
-        if (searchLine[0] == '\n') {
-            break;
-        }
-        searchWordle = strtok(searchLine, " ");
-        while (searchWordle != NULL) {
-            searchWordle[strcspn(searchWordle, "\n")] = '\0';
-            mathRelevance(patTree, docList, searchWordle);
-            searchWordle = strtok(NULL, " ");
-        }
+void searchTool(typePatPointer* patTree, typeDocList* docList, char* searchLine) {
+    char* searchWordle = strtok(searchLine, " ");
+    while (searchWordle != NULL) {
+        searchWordle[strcspn(searchWordle, "\n")] = '\0';
+        mathRelevance(patTree, docList, searchWordle);
+        searchWordle = strtok(NULL, " ");
     }
-    printDocByRev(docList);
-    docReset(docList);
 }

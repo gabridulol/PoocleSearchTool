@@ -29,4 +29,4 @@ void buildInvertedIndex(typePatPointer* patTree, typeDocList* docList);
 // Função que imprime o índice invertido
 void printInvertedIndex(typePatPointer* patTree);
 // Função que realiza busca com base em termos de busca
-void searchTool(typePatPointer* patTree, typeDocList* docList);
+void searchTool(typePatPointer* patTree, typeDocList* docList, char* searchLine);

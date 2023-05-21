@@ -6,3 +6,5 @@
 // Implementação do menu do Buscador Poocle
 
 #include "../headers/searchEngineTasks.h"
+
+void poocleMenu(typePatPointer* patTree, typeDocList* docList);

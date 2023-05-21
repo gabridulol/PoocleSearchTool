@@ -26,6 +26,8 @@ typedef struct typePatNode {
     } typeExtNode;
 } typePatNode;
 
+// Função para verificar se a árvore PATRICIA esta vazia
+int isTreeEmpty(typePatPointer patTree);
 // Função para iniciar a árvore PATRICIA
 void startPatTree(typePatPointer* patTree);
 //Funções para verificar se o nó da PATRICIA
