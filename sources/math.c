@@ -32,7 +32,6 @@ double mathDocRelevance(typePatPointer* patTree, typeDocPointer currentDoc, char
 double mathWordleWeight(typePatPointer auxTree, typeIndexPointer auxIndex, int idDoc, int nDocs) {
     int inDoc = sizeIndexList(*auxTree -> typeExtNode.wordleData.indexList);
     int qtde = auxIndex -> itemIndex.qtde;
-    double n = (qtde * (log10(nDocs) / inDoc));
     return (qtde * (log10(nDocs) / inDoc));
 }
 
