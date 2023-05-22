@@ -1,3 +1,6 @@
+<img src="https://cdn.discordapp.com/attachments/363781287531511811/1110339376011034664/Poocle-removebg-preview.png" width="315" 
+     alt="Poppies, by Van Gogh" />
+
 # CCF 212 - Trabalho Prático 1 - Buscador Poocle
 + Repositório destinado ao Trabalho Prático 1 da disciplina Algoritmos e Estruturas de Dados II
     - Construção de índice invertido para uma máquina de busca dos POCs do curso de Ciência da Computação. Atualmente, os POCs estão disponíveis como arquivos, em formato pdf, organizados no site do curso (https://ccp.caf.ufv.br/tccs/) por semestre de apresentação. Ainda não existe nenhum tipo de sistema de busca que permita a aplicação de filtros para recuperação dos trabalhos.
