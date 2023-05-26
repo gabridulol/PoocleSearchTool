@@ -1,4 +1,4 @@
-<img src="GTKProject/Poocle Search Tool.png" width="10060" height="100">>
+<img src="GTKProject/Poocle Search Tool.png" width="10060" height="100">
 
 # CCF 212 - Trabalho Prático 1 - Buscador Poocle
 + Repositório destinado ao Trabalho Prático 1 da disciplina Algoritmos e Estruturas de Dados II
