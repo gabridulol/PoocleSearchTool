@@ -18,6 +18,7 @@ int readSrcFile(typeDocList* docList, char* srcFileName) {
     startDocList(docList);
     writeSrcFile(docList, srcFile);
     fclose(srcFile);
+    return 0;
 }
 
 void writeSrcFile(typeDocList* docList, FILE* srcFile) {
@@ -57,6 +58,7 @@ int writeDocFile(typePatPointer* patTree, typeDocList* docList, typeDocPointer a
         *patTree = insertPatTree(patTree, docList, textWord, idDoc);
     }
     fclose(docFile);
+    return 0;
 }
 
 void cleanFiles() {

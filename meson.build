@@ -4,7 +4,7 @@ gtkdep = dependency('gtk+-3.0')
 
 headers = [
   'docList.h', 'index.h', 'wordle.h', 'patTree.h',
-  'fileManagement.h', 'math.h', 'searchEngineTasks.h', 'poocleMenu.h'
+  'fileManagement.h', 'math.h', 'searchEngineTasks.h', 'poocleMenu.h', 'GTKInterface.h'
 ]
 
 include_dir = include_directories('sources')
@@ -17,7 +17,8 @@ sources = [
   'sources/fileManagement.c',
   'sources/math.c',
   'sources/searchEngineTasks.c',
-  'sources/poocleMenu.c'
+  'sources/poocleMenu.c',
+  'sources/GTKInterface.c'
 ]
 
 executable('poocle', 'main.c', sources,

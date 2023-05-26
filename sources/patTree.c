@@ -6,9 +6,7 @@
 #include "../headers/patTree.h"
 
 int isTreeEmpty(typePatPointer patTree) {
-    if (patTree == NULL) {
-        return 1;
-    }
+    return patTree == NULL;
 }
 
 void startPatTree(typePatPointer* patTree) {

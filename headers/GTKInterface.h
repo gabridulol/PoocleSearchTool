@@ -3,7 +3,8 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-#include <gtk/gtk.h>
+#include "../headers/poocleMenu.h"
+
 // #include <gtj/gtk.h> -> include path
 // pkg-config --cflags gtk4
 // pkg-config --libs gtk4
