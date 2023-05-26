@@ -4,6 +4,5 @@ all:
     else
 		meson setup builddir; \
 		cd builddir; \
-		ninja; \
-		./poocle
+		ninja;
     endif

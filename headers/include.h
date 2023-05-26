@@ -3,6 +3,7 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
+#include <gtk/gtk.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
