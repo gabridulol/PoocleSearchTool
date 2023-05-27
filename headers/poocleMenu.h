@@ -7,4 +7,5 @@
 
 #include "../headers/searchEngineTasks.h"
 
+// Função Poocle Menu para PROMPT
 void poocleMenu(typePatPointer* patTree, typeDocList* docList);
