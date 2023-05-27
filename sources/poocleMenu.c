@@ -62,7 +62,7 @@ void poocleMenu(typePatPointer* patTree, typeDocList* docList) {
                     break;
             }
             searchTool(patTree, docList, searchLine);
-            printf("\nSearch results:\n\n");
+            printf("\nSearch Results:\n\n");
             printDocByRev(docList);
             printf("\n");
             break;

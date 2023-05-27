@@ -42,7 +42,7 @@ void GTKPrintDocList(typeDocList docList) {
 
 void GTKPrintPatTree(typePatPointer patTree) {
     GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_title(GTK_WINDOW(window), "Print Pat Tree");
+    gtk_window_set_title(GTK_WINDOW(window), "Inverted Index");
     gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
@@ -92,10 +92,89 @@ void GTKPrintPatTreeRecursive(typePatPointer patTree, GtkTextBuffer *buffer) {
     }
 }
 
+void GTKSearchTool(typeGTKData *GTKData) {
+    GtkWidget *dialog;
+    GtkWidget *content_area;
+    GtkWidget *entry;
+    gint result;
+    dialog = gtk_dialog_new_with_buttons("Search Dialog",
+                                         GTK_WINDOW(gtk_window_new(GTK_WINDOW_TOPLEVEL)),
+                                         GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+                                         "Search", GTK_RESPONSE_ACCEPT,
+                                         "Cancel", GTK_RESPONSE_CANCEL,
+                                         NULL);
+    gtk_window_set_default_size(GTK_WINDOW(dialog), 400, 80);
+    content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+    entry = gtk_entry_new();
+    gtk_entry_set_placeholder_text(GTK_ENTRY(entry), "Enter search line...");
+    gtk_container_add(GTK_CONTAINER(content_area), entry);
+    gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
+    gtk_widget_show_all(dialog);
+    result = gtk_dialog_run(GTK_DIALOG(dialog));
+    if (result == GTK_RESPONSE_ACCEPT) {
+        const gchar *search_query = gtk_entry_get_text(GTK_ENTRY(entry));
+        char searchLine[sizeLine];
+        strcpy(searchLine, search_query);
+        char* searchWordle = strtok(searchLine, " ");
+        while (searchWordle != NULL) {
+            searchWordle[strcspn(searchWordle, "\n")] = '\0';
+            mathRelevance(&GTKData->patTree, &GTKData->docList, searchWordle);
+            searchWordle = strtok(NULL, " ");
+        }
+    }
+    gtk_widget_destroy(dialog);
+    GTKPrintDocByRev(GTKData);
+}
+
+void GTKPrintDocByRev(typeGTKData *GTKData) {
+    typeDocPointer auxDoc = GTKData->docList.firstCell->nextCell;
+    double array[GTKData->docList.nDocs];
+    int count = 0;
+    typeDocPointer auxPrint;
+    while (auxDoc != NULL) {
+        array[count] = auxDoc->itemDoc.rDoc;
+        count++;
+        auxDoc = auxDoc->nextCell;
+    }
+    qsort(array, GTKData->docList.nDocs, sizeof(double), cmp);
+
+    GtkWidget *window;
+    GtkWidget *scrolled_window;
+    GtkWidget *text_view;
+    GtkTextBuffer *buffer;
+    window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(window), "Search Results");
+    gtk_window_set_default_size(GTK_WINDOW(window), 400, 100);
+    g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+    scrolled_window = gtk_scrolled_window_new(NULL, NULL);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    text_view = gtk_text_view_new();
+    gtk_text_view_set_editable(GTK_TEXT_VIEW(text_view), FALSE);
+    gtk_text_view_set_cursor_visible(GTK_TEXT_VIEW(text_view), FALSE);
+    gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(text_view), GTK_WRAP_WORD);
+    buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_view));
+    count = 0;
+    while (count < GTKData->docList.nDocs) {
+        if (array[count] != 0) {
+            char bufferText[256];
+            auxPrint = findDocByRev(GTKData->docList, array[count]);
+            g_snprintf(bufferText, sizeof(bufferText), "Text %d (%s)\n", auxPrint->itemDoc.idDoc, auxPrint->itemDoc.docName);
+            gtk_text_buffer_insert_at_cursor(buffer, bufferText, -1);
+        }
+        count++;
+    }
+    gtk_container_add(GTK_CONTAINER(scrolled_window), text_view);
+    gtk_container_add(GTK_CONTAINER(window), scrolled_window);
+    gtk_widget_show_all(window);
+    gtk_main();
+    docReset(&GTKData->docList);
+}
+
 void button_insert_source_clicked(GtkWidget *widget, gpointer data) {
     typeGTKData *GTKData = (typeGTKData*) data;
     g_print("Insert source file button clicked!\n");
     getFile(&GTKData -> docList);
+    docReset(&GTKData->docList);
     GTKPrintDocList(GTKData -> docList);
 }
 
@@ -112,7 +191,9 @@ void button_print_index_clicked(GtkWidget *widget, gpointer data) {
 }
 
 void button_search_clicked(GtkWidget *widget, gpointer data) {
+    typeGTKData *GTKData = (typeGTKData*) data;
     g_print("Search on Poocle button clicked!\n");
+    GTKSearchTool(GTKData);
 }
 
 void button_exit_clicked(GtkWidget *widget, gpointer data) {
@@ -151,7 +232,7 @@ void gtkmain(int argc, char *argv[]) {
     g_signal_connect(button_insert_source, "clicked", G_CALLBACK(button_insert_source_clicked), &GTKData);
     g_signal_connect(button_build_index, "clicked", G_CALLBACK(button_build_index_clicked), &GTKData);
     g_signal_connect(button_print_index, "clicked", G_CALLBACK(button_print_index_clicked), &GTKData);
-    g_signal_connect(button_search, "clicked", G_CALLBACK(button_search_clicked), NULL);
+    g_signal_connect(button_search, "clicked", G_CALLBACK(button_search_clicked), &GTKData);
     g_signal_connect(button_exit, "clicked", G_CALLBACK(button_exit_clicked), NULL);
 
     GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
