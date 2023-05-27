@@ -45,25 +45,19 @@ void GTKPrintPatTree(typePatPointer patTree) {
     gtk_window_set_title(GTK_WINDOW(window), "Inverted Index");
     gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-
     GtkWidget *scrolled_window = gtk_scrolled_window_new(NULL, NULL);
     gtk_container_set_border_width(GTK_CONTAINER(scrolled_window), 10);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-
     GtkWidget *text_view = gtk_text_view_new();
     gtk_text_view_set_editable(GTK_TEXT_VIEW(text_view), FALSE);
     gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(text_view), GTK_WRAP_WORD_CHAR);
-
     GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_view));
-
     if (patTree != NULL) {
         GTKPrintPatTreeRecursive(patTree, buffer);
     }
-
     gtk_container_add(GTK_CONTAINER(scrolled_window), text_view);
     gtk_container_add(GTK_CONTAINER(window), scrolled_window);
     gtk_widget_show_all(window);
-
     gtk_main();
 }
 
@@ -76,14 +70,12 @@ void GTKPrintPatTreeRecursive(typePatPointer patTree, GtkTextBuffer *buffer) {
             gchar bufferText[256];
             g_snprintf(bufferText, sizeof(bufferText), "%s ", patTree->typeExtNode.wordleData.wordChar);
             gtk_text_buffer_insert_at_cursor(buffer, bufferText, -1);
-
             typeIndexPointer auxIndex = patTree->typeExtNode.wordleData.indexList->firstCell->nextCell;
             while (auxIndex != NULL) {
-                g_snprintf(bufferText, sizeof(bufferText), "<%d, %d> ", auxIndex->itemIndex.qtde, auxIndex->itemIndex.idDoc);
+                g_snprintf(bufferText, sizeof(bufferText), " <%d, %d> ", auxIndex->itemIndex.qtde, auxIndex->itemIndex.idDoc);
                 gtk_text_buffer_insert_at_cursor(buffer, bufferText, -1);
                 auxIndex = auxIndex->nextCell;
             }
-
             gtk_text_buffer_insert_at_cursor(buffer, "\n\n", -1);
         }
         if (patTree->innext == inn) {
@@ -137,7 +129,6 @@ void GTKPrintDocByRev(typeGTKData *GTKData) {
         auxDoc = auxDoc->nextCell;
     }
     qsort(array, GTKData->docList.nDocs, sizeof(double), cmp);
-
     GtkWidget *window;
     GtkWidget *scrolled_window;
     GtkWidget *text_view;
@@ -203,16 +194,12 @@ void button_exit_clicked(GtkWidget *widget, gpointer data) {
 
 void gtkmain(int argc, char *argv[]) {
     typeGTKData GTKData;
-
     gtk_init(&argc, &argv);
-
     GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(window), "Poocle Search Tool");
     gtk_container_set_border_width(GTK_CONTAINER(window), 10);
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-
     gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
-
     const gchar* title_markup = "<span foreground='#4285F4'  font_weight='bold' font='24'><big>P</big></span>"
                                  "<span foreground='#DB4437' font_weight='bold' font='24'><big>o</big></span>"
                                  "<span foreground='#F4B400' font_weight='bold' font='24'><big>o</big></span>"
@@ -222,19 +209,16 @@ void gtkmain(int argc, char *argv[]) {
                                  "<span foreground='#FFFFFF' font_weight='bold' font='24'><big> Search Tool</big></span>";
     GtkWidget* title_label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(title_label), title_markup);
-
     GtkWidget *button_insert_source = gtk_button_new_with_label("Insert source file");
     GtkWidget *button_build_index = gtk_button_new_with_label("Build inverted index");
     GtkWidget *button_print_index = gtk_button_new_with_label("Print inverted index");
     GtkWidget *button_search = gtk_button_new_with_label("Search on Poocle");
     GtkWidget *button_exit = gtk_button_new_with_label("Exit");
-
     g_signal_connect(button_insert_source, "clicked", G_CALLBACK(button_insert_source_clicked), &GTKData);
     g_signal_connect(button_build_index, "clicked", G_CALLBACK(button_build_index_clicked), &GTKData);
     g_signal_connect(button_print_index, "clicked", G_CALLBACK(button_print_index_clicked), &GTKData);
     g_signal_connect(button_search, "clicked", G_CALLBACK(button_search_clicked), &GTKData);
     g_signal_connect(button_exit, "clicked", G_CALLBACK(button_exit_clicked), NULL);
-
     GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
     gtk_box_pack_start(GTK_BOX(box), title_label, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(box), button_insert_source, FALSE, FALSE, 0);
@@ -242,10 +226,7 @@ void gtkmain(int argc, char *argv[]) {
     gtk_box_pack_start(GTK_BOX(box), button_print_index, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(box), button_search, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(box), button_exit, FALSE, FALSE, 0);
-
     gtk_container_add(GTK_CONTAINER(window), box);
-
     gtk_widget_show_all(window);
-
     gtk_main();
 }
