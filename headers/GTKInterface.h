@@ -16,3 +16,10 @@ void button_print_index_clicked(GtkWidget *widget, gpointer data);
 void button_search_clicked(GtkWidget *widget, gpointer data);
 void button_exit_clicked(GtkWidget *widget, gpointer data);
 void gtkmain(int argc, char *argv[]);
+
+// Função GTK para imprimir a lista encadeada de documentos
+void GTKPrintDocList(typeDocList docList);
+
+// Funções GTK de impressão da árvore PATRICIA em ordem alfabética
+void GTKPrintPatTree(typePatPointer patTree);
+void GTKPrintPatTreeRecursive(typePatPointer patTree, GtkTextBuffer *buffer);

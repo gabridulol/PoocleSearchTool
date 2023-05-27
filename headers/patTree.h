@@ -47,6 +47,3 @@ typePatPointer findNode(typePatPointer patTree, char* searchWordle);
 int searchPatTree(typePatPointer patTree, char* searchWordle);
 // Função de impressão da árvore PATRICIA em ordem alfabética
 void printPatTree(typePatPointer patTree);
-// Funções de impressão da árvore PATRICIA em ordem alfabética
-void GTKPrintPatTree(typePatPointer patTree);
-void GTKPrintPatTreeRecursive(typePatPointer patTree, GtkTextBuffer *buffer);

@@ -33,6 +33,8 @@ void poocleMenu(typePatPointer* patTree, typeDocList* docList) {
             printf("1. Insert source file");
             printf("\n=======================\n");
             getFile(docList);
+            printf("\nDocuments List:\n\n");
+            printDocList(*docList);
             break;
         case 2 :
             printf("\n=======================\n");
@@ -45,7 +47,9 @@ void poocleMenu(typePatPointer* patTree, typeDocList* docList) {
             printf("\n=======================\n");
             printf("3. Print inverted index");
             printf("\n=======================\n");
+            printf("\nInverted Index:\n\n");
             printInvertedIndex(patTree);
+            printf("\n");
             break;
         case 4 :
             printf("\n=======================\n");

@@ -46,5 +46,3 @@ typeDocPointer findDoc(typeDocList docList, int idDoc);
 typeDocPointer findDocByRev(typeDocList docList, double rDoc);
 // Função para imprimir a lista encadeada de documentos
 void printDocList(typeDocList docList);
-// Função GTK para imprimir a lista encadeada de documentos
-void GTKPrintDocList(typeDocList docList);

@@ -7,8 +7,6 @@
 
 void getFile(typeDocList* docList) {
     readSrcFile(docList, "entrada.txt");
-    printf("\nDocuments list:\n\n");
-    printDocList(*docList);
 }
 
 void buildInvertedIndex(typePatPointer* patTree, typeDocList* docList) {
@@ -16,9 +14,7 @@ void buildInvertedIndex(typePatPointer* patTree, typeDocList* docList) {
 }
 
 void printInvertedIndex(typePatPointer* patTree) {
-    printf("\nInverted index:\n\n");
     printPatTree(*patTree);
-    printf("\n");
 }
 
 void searchTool(typePatPointer* patTree, typeDocList* docList, char* searchLine) {
