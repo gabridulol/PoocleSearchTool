@@ -62,5 +62,5 @@ int writeDocFile(typePatPointer* patTree, typeDocList* docList, typeDocPointer a
 }
 
 void cleanFiles() {
-    system("python3 files/fileManagement.py");
+    system("python3 files/file_management.py");
 }
