@@ -3,9 +3,9 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-// Implementação do menu do Buscador Poocle
+// Implementação do Poocle Search Tool para Terminal
 
 #include "../headers/searchEngineTasks.h"
 
-// Função Poocle Menu para PROMPT
+// Função Poocle Menu
 void poocleMenu(typePatPointer* patTree, typeDocList* docList);

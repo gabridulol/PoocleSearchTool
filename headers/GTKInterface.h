@@ -3,9 +3,12 @@
 // Marcos Biscotto de Oliveira - 4236
 // Luiz César Galvão Lima - 4216
 
-// Os códigos implementados aqui foram feitos com o auxílio do Chat GPT 
+// Implementação do Poocle Search Tool para GTK
 
-#include "../headers/poocleMenu.h"
+// Os códigos implementados aqui foram feitos com o auxílio do Chat GPT (https://chat.openai.com/) 
+// e utilizando a documentação disponpivel do GTK (https://www.gtk.org/)
+
+#include "../headers/searchEngineTasks.h"
 
 // Estrutura GTKData para realizar "links" no menu
 typedef struct GTKData {
@@ -13,9 +16,9 @@ typedef struct GTKData {
     typeDocList docList; // Lista de Documentos
 } typeGTKData;
 
-// Função GTK para imprimir a lista encadeada de documentos
+// Função GTK para imprimir a lista de documentos
 void GTKPrintDocList(typeDocList docList);
-// Funções GTK de impressão da árvore PATRICIA em ordem alfabética
+// Função GTK para imprimir a árvore PATRICIA em ordem alfabética
 void GTKPrintPatTree(typePatPointer patTree);
 void GTKPrintPatTreeRecursive(typePatPointer patTree, GtkTextBuffer *buffer);
 // Funções GTK para Search on Poocle

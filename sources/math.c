@@ -56,6 +56,7 @@ void printDocByRev(typeDocList* docList) {
     }
     docReset(docList);
 }
+
 int cmp(const void *a, const void *b) {
     double value1 = *(double *)a;
     double value2 = *(double *)b;
@@ -63,4 +64,3 @@ int cmp(const void *a, const void *b) {
     else if (value1 < value2) return 1;
     else return 0;
 }
-

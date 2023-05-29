@@ -5,10 +5,6 @@
 
 #include "../headers/patTree.h"
 
-int isTreeEmpty(typePatPointer patTree) {
-    return patTree == NULL;
-}
-
 void startPatTree(typePatPointer* patTree) {
     *patTree = NULL;
 }

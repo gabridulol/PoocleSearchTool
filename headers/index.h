@@ -12,25 +12,27 @@ typedef struct index {
     int qtde; // Quantidade
     int idDoc; // Documento
 } typeIndex;
-// Estrutura da célula do índice
+
+// Estrutura da célula da lista encadeade de índices
 typedef struct typeIndexCell* typeIndexPointer;
 typedef struct typeIndexCell {
     typeIndex itemIndex;
     typeIndexPointer nextCell;
 } typeIndexCell;
+
 // Estrutura da lista encadeada de índices
 typedef struct indexList {
     typeIndexPointer firstCell;
     typeIndexPointer lastCell;
 } typeIndexList;
 
-// Função para inicar a lista encadeada de índices
+// Função para inicar a lista de índices
 void startIndexList(typeIndexList* indexList);
-// Função para inserir na lista encadeada de índices
+// Função para inserir na lista de índices
 void insertIndexList(typeIndexList* indexList, int idDoc);
-// Função para procurar o indíce de um arquivo específico
+// Função para procurar na lista de índices por idDoc
 typeIndexPointer findIdDoc(typeIndexList indexList, int idDoc);
-// Função para retornar o tamanho da lista encadeade de índices
+// Função para retornar o tamanho da lista de índices
 int sizeIndexList(typeIndexList indexList);
-// Função para imprimir a lista encadeada de índices
+// Função para imprimir a lista de índices
 void printIndexList(typeIndexList indexList);

@@ -7,13 +7,13 @@
 
 #include "../headers/patTree.h"
 
-// Função para ler o arquivo de entrada "arquivos.txt"
+// Função para ler o arquivo de entrada
 int readSrcFile(typeDocList* docList, char* srcFileName);
-// Função para escrever o arquivo de entrada em uma lista (docList)
+// Função para escrever o arquivo de entrada em uma lista de documentos
 void writeSrcFile(typeDocList* docList, FILE* srcFile);
-// Função para ler os arquivos de POCs "arquivoN.txt"
+// Função para ler os arquivos de documentos
 void readDocFile(typePatPointer* patTree, typeDocList* docList);
-// Função para escrever os arquivos de POCs na árvore (patTree)
+// Função para escrever os arquivos de documentos na árvore PATRICIA
 int writeDocFile(typePatPointer* patTree, typeDocList* docList, typeDocPointer auxDoc);
-// Função para preparar os arquivos de POCs para serem escritos
+// Função auxiliar para preparar os arquivos de documentos
 void cleanFiles(); // Para mais detalhes ver fileManagement.py

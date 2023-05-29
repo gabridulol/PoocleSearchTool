@@ -105,14 +105,8 @@ void GTKSearchTool(typeGTKData *GTKData) {
     result = gtk_dialog_run(GTK_DIALOG(dialog));
     if (result == GTK_RESPONSE_ACCEPT) {
         const gchar *search_query = gtk_entry_get_text(GTK_ENTRY(entry));
-        char searchLine[sizeLine];
-        strcpy(searchLine, search_query);
-        char* searchWordle = strtok(searchLine, " ");
-        while (searchWordle != NULL) {
-            searchWordle[strcspn(searchWordle, "\n")] = '\0';
-            mathRelevance(&GTKData->patTree, &GTKData->docList, searchWordle);
-            searchWordle = strtok(NULL, " ");
-        }
+        char searchLine[sizeLine]; strcpy(searchLine, search_query);
+        searchTool(&GTKData->patTree, &GTKData->docList, searchLine);
     }
     gtk_widget_destroy(dialog);
     GTKPrintDocByRev(GTKData);

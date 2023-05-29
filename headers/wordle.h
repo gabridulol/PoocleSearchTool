@@ -7,10 +7,10 @@
 
 #include "../headers/index.h"
 
-// Estrutura do TERMO DE BUSCA
+// Estrutura da Wordle
 typedef struct wordle {
-    char* wordChar;
-    typeIndexList* indexList;
+    char* wordChar; // Palavra
+    typeIndexList* indexList; // Lista de índices
 } typeWordle;
 
 // Função para iniciar uma wordle

@@ -28,60 +28,60 @@ void poocleMenu(typePatPointer* patTree, typeDocList* docList) {
         printf("Option: "); scanf("%d", &chooseOption);
         system("cls || clear");
         switch (chooseOption) {
-        case 1 :
-            printf("\n=======================\n");
-            printf("1. Insert source file");
-            printf("\n=======================\n");
-            getFile(docList);
-            printf("\nDocuments List:\n\n");
-            printDocList(*docList);
-            break;
-        case 2 :
-            printf("\n=======================\n");
-            printf("2. Build inverted index");
-            printf("\n=======================\n\n");
-            buildInvertedIndex(patTree, docList);
-            printf("\n");
-            break;
-        case 3 :
-            printf("\n=======================\n");
-            printf("3. Print inverted index");
-            printf("\n=======================\n");
-            printf("\nInverted Index:\n\n");
-            printInvertedIndex(patTree);
-            printf("\n");
-            break;
-        case 4 :
-            printf("\n=======================\n");
-            printf("4. Search on Poocle");
-            printf("\n=======================\n\n");
-            printf("Search: ");
-            getchar();
-            fgets(searchLine, sizeof(searchLine), stdin);
-            if (searchLine[0] == '\n') {
-                    break;
-            }
-            searchTool(patTree, docList, searchLine);
-            printf("\nSearch Results:\n\n");
-            printDocByRev(docList);
-            printf("\n");
-            break;
-        case 5 :
-            printf("\n=======================\n");
-            printf("4. Exit");
-            printf("\n=======================\n\n");
-            printf("Thank you for using ");
-            printf(ANSI_COLOR_BLUE "P" ANSI_COLOR_RESET);
-            printf(ANSI_COLOR_RED "o" ANSI_COLOR_RESET);
-            printf(ANSI_COLOR_YELLOW "o" ANSI_COLOR_RESET);
-            printf(ANSI_COLOR_BLUE "c" ANSI_COLOR_RESET);
-            printf(ANSI_COLOR_GREEN "l" ANSI_COLOR_RESET);
-            printf(ANSI_COLOR_RED "e" ANSI_COLOR_RESET);
-            printf("!\n\n");
-            loop = 0;
-            break;
-        default:
-            printf("Invalid option! Try again...\n");
+            case 1 :
+                printf("\n=======================\n");
+                printf("1. Insert source file");
+                printf("\n=======================\n");
+                getFile(docList);
+                printf("\nDocuments List:\n\n");
+                printDocList(*docList);
+                break;
+            case 2 :
+                printf("\n=======================\n");
+                printf("2. Build inverted index");
+                printf("\n=======================\n\n");
+                buildInvertedIndex(patTree, docList);
+                printf("\n");
+                break;
+            case 3 :
+                printf("\n=======================\n");
+                printf("3. Print inverted index");
+                printf("\n=======================\n");
+                printf("\nInverted Index:\n\n");
+                printInvertedIndex(patTree);
+                printf("\n");
+                break;
+            case 4 :
+                printf("\n=======================\n");
+                printf("4. Search on Poocle");
+                printf("\n=======================\n\n");
+                printf("Search: ");
+                getchar();
+                fgets(searchLine, sizeof(searchLine), stdin);
+                if (searchLine[0] == '\n') {
+                        break;
+                }
+                searchTool(patTree, docList, searchLine);
+                printf("\nSearch Results:\n\n");
+                printDocByRev(docList);
+                printf("\n");
+                break;
+            case 5 :
+                printf("\n=======================\n");
+                printf("4. Exit");
+                printf("\n=======================\n\n");
+                printf("Thank you for using ");
+                printf(ANSI_COLOR_BLUE "P" ANSI_COLOR_RESET);
+                printf(ANSI_COLOR_RED "o" ANSI_COLOR_RESET);
+                printf(ANSI_COLOR_YELLOW "o" ANSI_COLOR_RESET);
+                printf(ANSI_COLOR_BLUE "c" ANSI_COLOR_RESET);
+                printf(ANSI_COLOR_GREEN "l" ANSI_COLOR_RESET);
+                printf(ANSI_COLOR_RED "e" ANSI_COLOR_RESET);
+                printf("!\n\n");
+                loop = 0;
+                break;
+            default:
+                printf("Invalid option! Try again...\n");
         }
     }
 }

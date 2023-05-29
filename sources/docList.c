@@ -5,10 +5,6 @@
 
 #include "../headers/docList.h"
 
-int isDocListEmpty(typeDocList docList) {
-    return (docList.firstCell == docList.lastCell);
-}
-
 void startDocList(typeDocList* docList) {
     docList -> firstCell = (typeDocCell*) malloc(sizeof(typeDocCell));
     docList -> firstCell -> nextCell = NULL;

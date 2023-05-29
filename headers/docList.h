@@ -12,14 +12,14 @@ typedef struct doc {
     // Informações básicas do documento
     char* docName; // Nome do documento
     int idDoc; // idDoc do documento
-    double rDoc; // Relevância do documento na lista de documentos
-    int nWordle; // Quantidade de termos distintos no documento
+    double rDoc; // Relevância do documento
+    int nWordle; // Termos distintos do documento
 } typeDoc;
 
-// Estrutura da célula do documento
+// Estrutura da célula da lista encadeada de documentos
 typedef struct typeDocCell* typeDocPointer;
 typedef struct typeDocCell {
-    typeDoc itemDoc;
+    typeDoc itemDoc; // Documento
     typeDocPointer nextCell;
 } typeDocCell;
 
@@ -30,19 +30,17 @@ typedef struct docList {
     typeDocPointer lastCell;
 } typeDocList;
 
-// Função para verficar se a lista encadeda de documentos é vazia
-int isDocListEmpty(typeDocList docList);
-// Função para iniciar a lista encadeada de documentps
+// Função para iniciar a lista de documentps
 void startDocList(typeDocList* docList);
-// Função para inserir na lista encadeada de documentos
+// Função para inserir na lista de documentos
 void insertDocList(typeDocList* docList, char* docName, int idDoc);
 // Função para alocar memória e dados de inserção do documento
 void fillDoc(typeDocList* docList, char* docName, int idDoc);
 // Função para zerar a relevância dos documentos para nova pesquisa
 void docReset(typeDocList* docList);
-// Função para procurar na lista encadeada de documentos por idDoc
+// Função para procurar na lista de documentos por idDoc
 typeDocPointer findDoc(typeDocList docList, int idDoc);
-// Função para procurar na lista encadeada de documentos por relevância
+// Função para procurar na lista de documentos por relevância
 typeDocPointer findDocByRev(typeDocList docList, double rDoc);
-// Função para imprimir a lista encadeada de documentos
+// Função para imprimir a lista de documentos
 void printDocList(typeDocList docList);

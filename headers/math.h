@@ -7,13 +7,13 @@
 
 #include "../headers/fileManagement.h"
 
-// Função para cálculo de relevância de todos os documentos
+// Função para cálculo de relevância da lista de documentos
 void mathRelevance(typePatPointer* patTree, typeDocList* docList, char* searchWordle);
-// Função para cálculo de relevância de um documento específico
+// Função para cálculo de relevância de um documentos
 double mathDocRelevance(typePatPointer *patTree, typeDocPointer currentDoc, char *searchWordle, int nDocs);
-// Função para cálculo do peso de uma palavra de um documento específico
+// Função para cálculo do peso de uma palavra
 double mathWordleWeight(typePatPointer auxTree, typeIndexPointer auxIndex, int idDoc, int nDocs);
-// Funçãao para imprimir os documentos por relevância
+// Função para imprimir a lista de documentos por relevância
 void printDocByRev(typeDocList *docList);
 // Função auxiliar para função qsort
 int cmp(const void *a, const void *b);
