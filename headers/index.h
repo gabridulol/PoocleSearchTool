@@ -5,7 +5,7 @@
 
 // Implementação do índice invertido TF-IDF (Term frequency – Inverse Document Frequency) e suas funções
 
-#include "../headers/docList.h"
+#include "../headers/include.h"
 
 // Estrutura do índice
 typedef struct index {

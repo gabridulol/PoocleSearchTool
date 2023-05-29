@@ -6,6 +6,7 @@
 // Implementação da árvore PATRICIA e suas funções
 
 #include "../headers/wordle.h"
+#include "../headers/docList.h"
 
 // Estrutura nó de tipo interno ou externo
 typedef enum {
