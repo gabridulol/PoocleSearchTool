@@ -4,6 +4,8 @@
             * Biblioteca NLTK - https://www.nltk.org
         * Meson Build - https://mesonbuild.com/
         * GIMP Tool Kit - https://www.gtk.org/
+- Após a instalação das dependências basta digitar o comando make no
+terminal para compilar e digitar novamente para executar o programa
 ========== UTILIZANDO O POOCLE SEARCH TOOL ==========
 - Para utilizar o Poocle Search Tool siga as seguintes etapas:
         Etapa 1 : inserir o arquivo de entrada (Insert source file)

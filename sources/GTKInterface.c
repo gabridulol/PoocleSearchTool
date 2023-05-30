@@ -89,7 +89,7 @@ void GTKSearchTool(typeGTKData *GTKData) {
     GtkWidget *content_area;
     GtkWidget *entry;
     gint result;
-    dialog = gtk_dialog_new_with_buttons("Search Dialog",
+    dialog = gtk_dialog_new_with_buttons("Search on Poocle",
                                          GTK_WINDOW(gtk_window_new(GTK_WINDOW_TOPLEVEL)),
                                          GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                          "Search", GTK_RESPONSE_ACCEPT,
@@ -107,9 +107,13 @@ void GTKSearchTool(typeGTKData *GTKData) {
         const gchar *search_query = gtk_entry_get_text(GTK_ENTRY(entry));
         char searchLine[sizeLine]; strcpy(searchLine, search_query);
         searchTool(&GTKData->patTree, &GTKData->docList, searchLine);
+        gtk_widget_destroy(dialog);
+        GTKPrintDocByRev(GTKData);
+        return;
     }
-    gtk_widget_destroy(dialog);
-    GTKPrintDocByRev(GTKData);
+    else {
+        gtk_widget_destroy(dialog);
+    }
 }
 
 void GTKPrintDocByRev(typeGTKData *GTKData) {
